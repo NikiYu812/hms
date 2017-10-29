@@ -1,49 +1,25 @@
 package com.bean;
 
-public class OldHouse {
-	
-	private Person person;
-	
-	private int id;
-	private String house_no;
-	private String person_id;
+public class Person {
+	private String id;
 	private String p0_name;
 	private String p0_uid;
 	private String p0_state;
 	private String p1_name;
 	private String p1_idcNo;
 	private String telNo;
-	private int location;
-	private String area;
-	private int sign_state;
-	private int move_state;
+	private String oh_id;
 	private String move_seq;
 	private int choose_state;
+	private String nh_id;
+	private String remark;
 	
-
-	public Person getPerson() {
-		return person;
-	}
-	public void setPerson(Person person) {
-		this.person = person;
-	}
-	public int getId() {
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
-	}
-	public String getHouse_no() {
-		return house_no;
-	}
-	public void setHouse_no(String house_no) {
-		this.house_no = house_no;
-	}
-	public String getPerson_id() {
-		return person_id;
-	}
-	public void setPerson_id(String person_id) {
-		this.person_id = person_id;
 	}
 	public String getP0_name() {
 		return p0_name;
@@ -81,29 +57,11 @@ public class OldHouse {
 	public void setTelNo(String telNo) {
 		this.telNo = telNo;
 	}
-	public int getLocation() {
-		return location;
+	public String getOh_id() {
+		return oh_id;
 	}
-	public void setLocation(int location) {
-		this.location = location;
-	}
-	public String getArea() {
-		return area;
-	}
-	public void setArea(String area) {
-		this.area = area;
-	}
-	public int getSign_state() {
-		return sign_state;
-	}
-	public void setSign_state(int sign_state) {
-		this.sign_state = sign_state;
-	}
-	public int getMove_state() {
-		return move_state;
-	}
-	public void setMove_state(int move_state) {
-		this.move_state = move_state;
+	public void setOh_id(String oh_id) {
+		this.oh_id = oh_id;
 	}
 	public String getMove_seq() {
 		return move_seq;
@@ -117,8 +75,18 @@ public class OldHouse {
 	public void setChoose_state(int choose_state) {
 		this.choose_state = choose_state;
 	}
-	
-	
+	public String getNh_id() {
+		return nh_id;
+	}
+	public void setNh_id(String nh_id) {
+		this.nh_id = nh_id;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 	
 	
 	

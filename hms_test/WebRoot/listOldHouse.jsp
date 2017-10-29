@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@page import="java.util.List" %>  
-<%@page import="com.bean.OldHouse" %>
+<%@page import="com.bean.OldHouse,com.bean.Person" %>
 <jsp:include page = "layout/header.jsp" flush = "true" />
 
 <%
@@ -47,11 +47,11 @@
 				String move_state_class = "red";
 				if(s.getSign_state()==1){
 					sign_state = "已签";
-					sign_state_class = "";
+					sign_state_class = "green";
 				}
 				if(s.getMove_state() == 1){
 					move_state = "已搬";
-					move_state_class = "";
+					move_state_class = "green";
 				}
 	 %>
 			<tr>

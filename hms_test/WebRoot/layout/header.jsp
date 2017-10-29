@@ -1,7 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -21,11 +23,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="description" content="This is my page">
 
 <!-- Bootstrap core CSS -->
-<link href="<%=basePath %>css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=basePath%>css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="<%=basePath %>css/style.css" rel="stylesheet"
+<link href="<%=basePath%>css/style.css" rel="stylesheet"
 	type="text/css">
+
+<style>
+<!--
+-->
+</style>
 
 </head>
 <body>
@@ -41,14 +48,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">房屋抽签系统</a>
+				<img alt="中国航发" src="<%=basePath%>image/logo_small.png" /> <img
+					alt="文字logo" src="<%=basePath%>image/logo_text.png" />
+				<!-- <a class="navbar-brand" href="#">房屋抽签系统</a> -->
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="oldHouseServlet?method=list">首页</a>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">菜单 <span class="caret"></span> </a>
+						<ul class="dropdown-menu">
+							<li><a href="oldHouseServlet?method=list">首页</a></li>
+							<li><a href="search.jsp">查询页面</a></li>
+							<li><a href="search_choose.jsp">抽签页面</a></li>
+<!-- 							<li role="separator" class="divider"></li>
+							<li class="dropdown-header">Nav header</li>
+							<li><a href="#">Separated link</a></li>
+							<li><a href="#">One more separated link</a></li> -->
+						</ul>
 					</li>
-					<li><a href="search.jsp">查询页面</a></li>
-					<li><a href="search_choose.jsp">抽签页面</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

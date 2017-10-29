@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 
 import com.bean.NewHouse;
 import com.bean.OldHouse;
+import com.bean.Person;
 import com.util.JdbcUtil;
 import com.util.SysUtil;
 
@@ -31,7 +32,7 @@ public class OldHouseServlet extends HttpServlet {
 
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		String  ct = SysUtil.getCurrentTime();
+		String  ct = SysUtil.getCurrentTime("yyyy-MM-dd HH:mm:ss");
 		String path = "";
 		String method = "list";
 		method = request.getParameter("method");
@@ -180,7 +181,7 @@ public class OldHouseServlet extends HttpServlet {
 					nh.setIsSelected(rs.getInt("isSelected"));
 					nh.setArea(rs.getString("area"));
 					nh.setPerson_id(rs.getString("person_id"));
-					nh.setPerson_name(rs.getString("p0_name"));
+					nh.setP0_name(rs.getString("p0_name"));
 					nh.setSelect_seq(rs.getString("select_seq"));
 					nh.setSelect_time(rs.getString("select_time"));
 					nh.setRemark(rs.getString("remark"));
@@ -242,17 +243,28 @@ public class OldHouseServlet extends HttpServlet {
 				path = "chooseResult.jsp";
 				NewHouse nh = new NewHouse();
 				
+				
 				//根据person_id查询person_id,p0_name,写入nh
-				sql="select t2.id,t2.p0_name from tb_oldHouse t1,tb_person t2 where t1.person_id = t2.id  and t1.person_id = ?";
+				sql="select t2.* from tb_oldHouse t1,tb_person t2 where t1.person_id = t2.id  and t1.person_id = ?";
 				ps = conn.prepareStatement(sql);
 				ps.setString(1, kw);
 				rs = ps.executeQuery();			
 				
 				while(rs.next()){
-					nh.setPerson_id(rs.getInt("id")+"");
-					nh.setPerson_name(rs.getString("p0_name"));
-					System.out.println(nh.getPerson_id()+nh.getPerson_name());
+					Person p = new Person();
+					p.setId(rs.getString("id"));
+					p.setP0_name(rs.getString("p0_name"));
+					p.setP0_uid(rs.getString("p0_uid"));
+					p.setP0_state(rs.getString("p0_state"));
+					p.setP1_idcNo(rs.getString("p1_idcNo"));
+					p.setP1_name(rs.getString("p1_name"));
+					p.setTelNo(rs.getString("telNo"));
+					nh.setPerson(p);
+					System.out.println(nh.getPerson().getId()+nh.getPerson().getP0_name());
 				}
+				
+				//防止刷新页面重复抽签
+				
 				
 //				开始抽签
 				//读取数据库中可用的房源形成列表
@@ -299,21 +311,22 @@ public class OldHouseServlet extends HttpServlet {
 					nh.setSelect_seq(seq+"");
 				}
 				
+				//更新新房源表数据
 				String update = "update tb_newHouse set isSelected = 1,person_id=?,p0_name=?, select_seq = ?,select_time=? where id = ?";
 				ps = conn.prepareStatement(update);
-				ps.setString(1, nh.getPerson_id());
-				ps.setString(2, nh.getPerson_name());
+				ps.setString(1, nh.getPerson().getId());
+				ps.setString(2, nh.getPerson().getP0_name());
 				ps.setString(3, nh.getSelect_seq());
 				ps.setString(4, nh.getSelect_time());
 				ps.setString(5, selected);
 				int result = ps.executeUpdate();
 				System.out.println(result);
-				
+				//更新人员信息表数据
 				update = "update tb_person set choose_state = ?, nh_id = ? where id = ?";
 				ps = conn.prepareStatement(update);
 				ps.setInt(1, 1);
 				ps.setString(2, nh.getId()+"");
-				ps.setString(3, nh.getPerson_id());
+				ps.setString(3, nh.getPerson().getId());
 				result = ps.executeUpdate();
 				System.out.println(result);
 				
@@ -325,9 +338,20 @@ public class OldHouseServlet extends HttpServlet {
  * 抽选新房屋结束
  * 				
  */
+				/*
+				 * 
+				 * 列出全部已选新房信息
+				 * 				
+				 */				
 				
+			}else if(method.equals("listSelectedNh") || method == "listSelectedNh") {
+				path = "listNewHouse.jsp";
+				// 编写SQL语句，执行，拿到结果集
+				sql = "select nh.*,p.* from tb_newHouse oh,tb_person p  where nh.person_id = p.id ";
+				ps = conn.prepareStatement(sql);
+				rs = ps.executeQuery();
 				
-			}else {
+			}else{
 				System.out.print("错错错");
 			}
 
