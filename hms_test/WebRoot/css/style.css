@@ -10,6 +10,7 @@ select,input,img,select{vertical-align:middle;}
 .table >tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
 	text-align : center;
 }
+hr {clear:both;}
 /*css为clearfix，清除浮动*/
 .clearfix::before,
 .clearfix::after{
@@ -26,7 +27,7 @@ select,input,img,select{vertical-align:middle;}
     clear:both;
 }
 .red , .important {
-	color: salmon;
+	color: red;
 }
 .green {
 	color: #00B58A;
@@ -37,6 +38,8 @@ select,input,img,select{vertical-align:middle;}
 	border-color: #62afdd;
 	width: 150px;
 }
+
+
 
 /* 
 	导航条样式
@@ -70,16 +73,27 @@ select,input,img,select{vertical-align:middle;}
 	 
 }
 
+
+
+/* 
+	房屋列表样式
+ */ 
+ .house_list_table{
+ 	margin-top: 30px;
+ }
 /* 
 	内容样式
  */
+ 
+
+ 
 .hms_container{
     margin: 50px auto;
     padding: 50px;
     padding-bottom: 20px;
     background-color: #fafafa;
     border-radius: 2px;
-    box-shadow: #666 1px 1px 1px;
+    box-shadow: #aaa 1px 1px 1px;
 }
 
 .hms_container  .hms_title{
@@ -100,7 +114,7 @@ select,input,img,select{vertical-align:middle;}
   display: block;
   float: left;
   padding:20px;
-  box-shadow: #666 1px 1px 1px;
+  box-shadow: #aaa 1px 1px 1px;
 }
 .hms_main{
 	position: relative;
@@ -145,6 +159,7 @@ select,input,img,select{vertical-align:middle;}
 	width:900px; 
 	height: 50px;
 	border-radius: 0;
+	font-size: 16px;
 }
 .searchByKw  .search_btn {
 	position: relative; 
@@ -155,6 +170,26 @@ select,input,img,select{vertical-align:middle;}
 	border-radius: 0;
 	background-color: #62afdd;
 	border-color: #62afdd;
-	
+	font-size: 16px;
 }
 
+/* 抽签结果页面 */
+.hms_main  .choose_result{
+	font-size: 20px;
+	paddig-top: 0;
+	padding-bottom: 30px;
+}
+.hms_main .choose_result>span{
+	display: block;
+	float: left;
+	margin-left: 50px;
+}
+.hms_main  .choose_result  .choose_result_lable{
+	margin-left: 80px;
+}
+.hms_main  .choose_result  .choose_result_content{
+	font-size: 24px;
+	font-weight: 800;
+	color: #00B58A;
+	
+}

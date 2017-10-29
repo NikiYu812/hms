@@ -10,7 +10,7 @@
 	</div>
 	<div class="hms_main">
 		<p class="choose_memo">
-			抽签步骤一：根据关键字查询人员与旧房屋信息
+			根据关键字查询人员与旧房屋信息
 		</p>
 		<form action="oldHouseServlet?method=find&choose=1" method="post"
 			class="form-inline  searchByKw">

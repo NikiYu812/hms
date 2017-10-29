@@ -11,11 +11,11 @@
 
 <div class="container">
 
-	<div class="panel panel-primary">
+	<div class="panel panel-primary  house_list_table">
   <!-- Default panel contents -->
   <div class="panel-heading">旧房屋列表</div>
 	
-	<table class = "table table-striped table-hover center" >
+	<table class = "table table-striped table-hover center " >
 			<thead>
 				<tr class ="" >
 		<!-- 			<th>id</th> -->

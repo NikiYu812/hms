@@ -19,14 +19,18 @@
 	kw = oh.getPerson_id();
 	String choose_state = "未抽签";
 	String choose_state_class = "red";
-	String sign_state = "未签";
+	String sign_state = "协议未签";
 	String sign_state_class = "red";
 	String move_state = "未搬";
 	String move_state_class = "red";
 
 	if (nh.getIsSelected() == 1) {
 		choose_state = "已抽签";
-		choose_state_class = "";
+		choose_state_class = "green";
+	}
+	if(oh.getSign_state() == 1){
+		sign_state = "协议已签";
+		sign_state_class = "green";
 	}
 %>
 <div class="container hms_container">
@@ -41,6 +45,7 @@
 					<li><span class="search_detail_lable">抽签状态</span> <span
 						class="search_detail_content  <%=choose_state_class%>"><%=choose_state%></span></li>
 				</ul>
+				<%if(choose_state == "已抽签"||choose_state.equals("已抽签")){ %>
 				<ul class="col-md-3">
 					<li><span class="search_detail_lable">抽中房号</span> <span
 						class="search_detail_content"><%=nh.getHouse_no()%></span></li>
@@ -53,6 +58,7 @@
 					<li><span class="search_detail_lable">抽签顺序</span> <span
 						class="search_detail_content"><%=nh.getSelect_seq()%></span></li>
 				</ul>
+				<%} %>
 			</div>
 			<hr />
 			<h3 class="search_detail_title">人员信息</h3>
@@ -71,7 +77,7 @@
 					<li><span class="search_detail_lable">协议签署人身份证号</span> <span
 						class="search_detail_content"><%=oh.getP1_idcNo()%></span></li>
 					<li><span class="search_detail_lable">协议状态</span> <span
-						class="search_detail_content"><%=oh.getSign_state()%></span></li>
+						class="search_detail_content <%=sign_state_class%>"><%=sign_state%></span></li>
 				</ul>
 			</div>
 			<hr />

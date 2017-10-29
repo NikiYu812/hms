@@ -15,7 +15,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <base href="<%=basePath%>">
-<title>房屋抽签系统</title>
+<title>房屋管理系统</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -56,11 +56,14 @@
 				<ul class="nav navbar-nav">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">菜单 <span class="caret"></span> </a>
+						aria-expanded="false">导航菜单<span class="caret"></span> </a>
 						<ul class="dropdown-menu">
-							<li><a href="oldHouseServlet?method=list">首页</a></li>
-							<li><a href="search.jsp">查询页面</a></li>
-							<li><a href="search_choose.jsp">抽签页面</a></li>
+							<li><a href="oldHouseServlet?method=list">旧房屋列表</a></li>
+							<li><a href="search.jsp">信息查询</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="oldHouseServlet?method=listNh ">新房源列表</a></li>
+							<li><a href="search_choose.jsp">开始抽签</a></li>
+							
 <!-- 							<li role="separator" class="divider"></li>
 							<li class="dropdown-header">Nav header</li>
 							<li><a href="#">Separated link</a></li>
