@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50605
 File Encoding         : 65001
 
-Date: 2017-10-27 15:01:21
+Date: 2017-10-31 14:41:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -322,7 +322,7 @@ INSERT INTO tb_oldhouse VALUES ('354', '221栋7号', '2398', '刘百印', '2', '
 INSERT INTO tb_oldhouse VALUES ('355', '221栋8号', '2399', '陈彦锋', '2', '31.19', '0001', '0001', '158', '');
 INSERT INTO tb_oldhouse VALUES ('356', '221栋9号', '2400', '吴玉尧', '2', '29.03', '0001', '0001', '132', '');
 INSERT INTO tb_oldhouse VALUES ('357', '221栋10号', '2401', '翟力群', '2', '40.3', '0001', '0001', '274', '');
-INSERT INTO tb_oldhouse VALUES ('358', '221栋12号', '2402', '李明', '2', '39.06', '0001', '0001', '104', '');
+INSERT INTO tb_oldhouse VALUES ('358', '221栋12号', '2200', '李明', '2', '39.06', '0001', '0001', '104', '');
 INSERT INTO tb_oldhouse VALUES ('359', '221栋13号', '2403', '公延金', '2', '39.22', '0001', '0001', '112', '');
 INSERT INTO tb_oldhouse VALUES ('36', '206栋3号', '2080', '于永学', '1', '81.75', '0000', '0000', '0', '');
 INSERT INTO tb_oldhouse VALUES ('360', '221栋14号', '2404', '吴刚', '2', '31.5', '0001', '0001', '113', '');
