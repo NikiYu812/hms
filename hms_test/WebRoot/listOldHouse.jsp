@@ -32,7 +32,7 @@
 					<th>协议状态</th>
 					<th>搬家状态</th>
 					<th>搬家顺序号</th>
-					<th>详情</th>
+					<!-- <th>详情</th> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -68,7 +68,7 @@
 				<td class="<%=sign_state_class %>"><%=sign_state %></td>
 				<td class="<%=move_state_class %>"><%=move_state %></td>
 				<td><%=s.getMove_seq() %></td>
-				<td><a href="#" data-toggle="modal" data-target="#myModal"  onclick="Detail(<%=s%>)">查看详情</a></td>					
+				<%-- <td><a href="#" data-toggle="modal" data-target="#myModal"  onclick="Detail(<%=s%>)">查看详情</a></td> --%>					
 			</tr>
 	<%
 	

@@ -2,11 +2,9 @@ package com.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,6 +19,8 @@ import javax.servlet.http.HttpSession;
 import com.bean.NewHouse;
 import com.bean.OldHouse;
 import com.bean.Person;
+import com.dao.OldHouseDao;
+import com.dao.OldHouseDaoImpl;
 import com.util.JdbcUtil;
 import com.util.SysUtil;
 
@@ -49,41 +49,11 @@ public class OldHouseServlet extends HttpServlet {
 				 * 
 				 * 查询全部旧房屋列表
 				 */
-
 				path = "listOldHouse.jsp";
-				// 编写SQL语句，执行，拿到结果集
-				sql = "select oh.*,p.* from tb_oldHouse oh,tb_person p  where oh.person_id = p.id order by oh.sign_state desc , oh.move_state desc , oh.id+0";
-				ps = conn.prepareStatement(sql);
-				rs = ps.executeQuery();
-
-				// 把结果集的东西倒进ArrayList
-				List<OldHouse> ss = new ArrayList<OldHouse>();
-				while (rs.next()) {
-					OldHouse s = new OldHouse();
-					s.setId(rs.getInt("id"));
-					s.setHouse_no(rs.getString("house_no"));
-					s.setPerson_id(rs.getString("person_id"));
-					s.setP0_name(rs.getString("p0_name"));
-					s.setP0_uid(rs.getString("p0_uid"));
-					s.setP0_state(rs.getString("p0_state"));
-					s.setP1_name(rs.getString("p1_name"));
-					s.setP1_idcNo(rs.getString("p1_idcNo"));
-					s.setTelNo(rs.getString("telNo"));
-					s.setLocation(rs.getInt("location"));
-					s.setArea(rs.getString("area"));
-					s.setSign_state(rs.getInt("sign_state"));
-					s.setMove_state(rs.getInt("move_state"));
-					s.setMove_seq(rs.getString("move_seq"));
-					s.setChoose_state(rs.getInt("choose_state"));
-					ss.add(s);
-				}
-
-				// ArrayList放进request的属性里，这样jsp页面就能request.getAttribute("ss")
-				// 拿出ArrayList了。
-				request.setAttribute("ss", ss);
+				OldHouseDao ohd = new OldHouseDaoImpl();
+				List<OldHouse> ohs = ohd.getAllOldHouses();
+				request.setAttribute("ss", ohs);
 				request.setAttribute("method", method);
-				rs.close();
-				ps.close();
 				/*
 				 * 
 				 * 查询全部旧房屋信息结束
