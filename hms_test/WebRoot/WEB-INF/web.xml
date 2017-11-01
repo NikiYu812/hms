@@ -17,14 +17,12 @@
 	</jsp-config>
 
 	<servlet>
-		<servlet-name>OldHouseServlet</servlet-name>
-		<servlet-class>com.servlet.OldHouseServlet</servlet-class>
+		<servlet-name>HousingServlet</servlet-name>
+		<servlet-class>com.servlet.HousingServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>OldHouseServlet</servlet-name>
-		<url-pattern>/oldHouseServlet</url-pattern>
+		<servlet-name>HousingServlet</servlet-name>
+		<url-pattern>/housingServlet</url-pattern>
 	</servlet-mapping>
-
-
 
 </web-app>

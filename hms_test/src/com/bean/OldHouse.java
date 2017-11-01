@@ -117,6 +117,17 @@ public class OldHouse {
 	public void setChoose_state(int choose_state) {
 		this.choose_state = choose_state;
 	}
+	@Override
+	public String toString() {
+		return "OldHouse [person=" + person + ", id=" + id + ", house_no="
+				+ house_no + ", person_id=" + person_id + ", p0_name="
+				+ p0_name + ", p0_uid=" + p0_uid + ", p0_state=" + p0_state
+				+ ", p1_name=" + p1_name + ", p1_idcNo=" + p1_idcNo
+				+ ", telNo=" + telNo + ", location=" + location + ", area="
+				+ area + ", sign_state=" + sign_state + ", move_state="
+				+ move_state + ", move_seq=" + move_seq + ", choose_state="
+				+ choose_state + "]";
+	}
 	
 	
 	

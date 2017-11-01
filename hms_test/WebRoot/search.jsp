@@ -19,7 +19,7 @@
 			class="black_block" /> <span class="board_block">查询房屋信息</span>
 	</div>
 	<div class="hms_main">
-		<form action="oldHouseServlet?method=find&choose=0" method="post"
+		<form action="housingServlet?method=find&choose=0" method="post"
 			class="form-inline  searchByKw">
 			<div class="form-group">
 				<input type="text" class="form-control  search_input" id="inputKeyword" name="kw"

@@ -49,7 +49,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<img alt="中国航发" src="<%=basePath%>image/logo_small.png" /> <img
+				<img alt="中国航发" src="<%=basePath%>image/logo_small.png"/> <img
 					alt="文字logo" src="<%=basePath%>image/logo_text.png" />
 				<!-- <a class="navbar-brand" href="#">房屋抽签系统</a> -->
 			</div>
@@ -59,16 +59,11 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">导航菜单<span class="caret"></span> </a>
 						<ul class="dropdown-menu">
-							<li><a href="oldHouseServlet?method=list">旧房屋列表</a></li>
+							<li class=""><a href="housingServlet?method=list">旧房屋列表</a></li>
 							<li><a href="search.jsp">信息查询</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="oldHouseServlet?method=listNh ">新房源列表</a></li>
+							<li><a href="housingServlet?method=listNh ">新房源列表</a></li>
 							<li><a href="search_choose.jsp">开始抽签</a></li>
-							
-<!-- 							<li role="separator" class="divider"></li>
-							<li class="dropdown-header">Nav header</li>
-							<li><a href="#">Separated link</a></li>
-							<li><a href="#">One more separated link</a></li> -->
 						</ul>
 					</li>
 				</ul>

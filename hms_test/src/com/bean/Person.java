@@ -87,6 +87,15 @@ public class Person {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", p0_name=" + p0_name + ", p0_uid="
+				+ p0_uid + ", p0_state=" + p0_state + ", p1_name=" + p1_name
+				+ ", p1_idcNo=" + p1_idcNo + ", telNo=" + telNo + ", oh_id="
+				+ oh_id + ", move_seq=" + move_seq + ", choose_state="
+				+ choose_state + ", nh_id=" + nh_id + ", remark=" + remark
+				+ "]";
+	}
 	
 	
 	

@@ -116,6 +116,16 @@ public class NewHouse {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	@Override
+	public String toString() {
+		return "NewHouse [person=" + person + ", id=" + id + ", house_no="
+				+ house_no + ", choose_id=" + choose_id + ", isSelected="
+				+ isSelected + ", area=" + area + ", person_id=" + person_id
+				+ ", p0_name=" + p0_name + ", p0_uid=" + p0_uid + ", p0_state="
+				+ p0_state + ", p1_name=" + p1_name + ", p1_idcNo=" + p1_idcNo
+				+ ", telNo=" + telNo + ", select_seq=" + select_seq
+				+ ", select_time=" + select_time + ", remark=" + remark + "]";
+	}
 	
 	
 	

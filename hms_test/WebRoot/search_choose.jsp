@@ -12,7 +12,7 @@
 		<p class="choose_memo">
 			根据关键字查询人员与旧房屋信息
 		</p>
-		<form action="oldHouseServlet?method=find&choose=1" method="post"
+		<form action="housingServlet?method=find&choose=1" method="post"
 			class="form-inline  searchByKw">
 			<div class="form-group">
 				<input type="text" class="form-control  search_input" id="inputKeyword" name="kw"

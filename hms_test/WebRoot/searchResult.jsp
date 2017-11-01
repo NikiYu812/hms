@@ -39,45 +39,44 @@
 			class="black_block" /> <span class="board_block">查询结果页面</span>
 	</div>
 	<div class="hms_main">
-			<h3 class="search_detail_title">抽签信息</h3>
+			<h3 class="search_detail_title">抽签信息 （<span class="<%=choose_state_class%>"><%=choose_state%></span>）</h3>
 			<div class="search_detail_body">
-				<ul class="col-md-12">
-					<li><span class="search_detail_lable">抽签状态</span> <span
-						class="search_detail_content  <%=choose_state_class%>"><%=choose_state%></span></li>
-				</ul>
 				<%if(choose_state == "已抽签"||choose_state.equals("已抽签")){ %>
-				<ul class="col-md-3">
+				<ul class="col-md-4">
 					<li><span class="search_detail_lable">抽中房号</span> <span
 						class="search_detail_content"><%=nh.getHouse_no()%></span></li>
 				</ul>
-				<ul class="col-md-3">
+				<ul class="col-md-4">
 					<li><span class="search_detail_lable">抽中号码</span> <span
 						class="search_detail_content"><%=nh.getChoose_id()%></span></li>
 				</ul>
-				<ul class="col-md-3">
+				<ul class="col-md-4">
 					<li><span class="search_detail_lable">抽签顺序</span> <span
 						class="search_detail_content"><%=nh.getSelect_seq()%></span></li>
 				</ul>
 				<%} %>
 			</div>
 			<hr />
-			<h3 class="search_detail_title">人员信息</h3>
+			<h3 class="search_detail_title">人员信息  （<span class="<%=sign_state_class%>"><%=sign_state%></span>）</h3>
 			<div class="search_detail_body  long">
-				<ul class="col-md-6">
+				<ul class="col-md-5">
 					<li><span class="search_detail_lable">原承租人姓名</span> <span
 						class="search_detail_content"><%=oh.getP0_name()%></span></li>
 					<li><span class="search_detail_lable">协议签署人姓名</span> <span
 						class="search_detail_content"><%=oh.getP1_name()%></span></li>
-					<li><span class="search_detail_lable">联系电话</span> <span
-						class="search_detail_content"><%=oh.getTelNo()%></span></li>
+					
 				</ul>
-				<ul class="col-md-6">
+				<ul class="col-md-7">
 					<li><span class="search_detail_lable">原承租人职工号</span> <span
 						class="search_detail_content"><%=oh.getP0_uid()%></span></li>
 					<li><span class="search_detail_lable">协议签署人身份证号</span> <span
 						class="search_detail_content"><%=oh.getP1_idcNo()%></span></li>
-					<li><span class="search_detail_lable">协议状态</span> <span
-						class="search_detail_content <%=sign_state_class%>"><%=sign_state%></span></li>
+<%-- 					<li><span class="search_detail_lable">协议状态</span> <span
+						class="search_detail_content <%=sign_state_class%>"><%=sign_state%></span></li> --%>
+				</ul>
+				<ul class="col-md-12 top0">
+					<li><span class="search_detail_lable">联系电话</span> <span
+						class="search_detail_content"><%=oh.getTelNo()%></span></li>
 				</ul>
 			</div>
 			<hr />
@@ -116,7 +115,7 @@
 	<%
 			if (choose == "1" || choose.equals("1")) {
 		%>
-		<form action="oldHouseServlet?method=choose" method="post">
+		<form action="housingServlet?method=choose" method="post">
 			<div id="btn">
 				<input type="submit" value="开始抽签"  class="btn  btn-primary btn-lg btn-hms-lg"/>
 			</div>

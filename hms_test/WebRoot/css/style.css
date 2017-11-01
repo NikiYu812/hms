@@ -193,3 +193,23 @@ hr {clear:both;}
 	color: #00B58A;
 	
 }
+
+/* 模态窗口 */
+
+.modal .modal-dialog.modal-lg{width: 1150px;}
+
+div#oldHouseDetails{
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+#oldHouseDetails .long .search_detail_lable{width: 160px;}
+
+.hms_main .search_detail_body  ul.top0{margin-top: 0;}
+
+
+
+
+
+
+

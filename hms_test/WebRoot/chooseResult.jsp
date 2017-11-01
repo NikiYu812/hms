@@ -39,6 +39,21 @@
 		</div>
 		<hr />
 
+		<h3 class="search_detail_title">新房信息</h3>
+		<div class="search_detail_body ">
+			<ul class="col-md-6">
+				<li><span class="search_detail_lable">房号</span> <span
+					class="search_detail_content"><%=nh.getHouse_no()%></span>
+				</li>
+			</ul>
+			<ul class="col-md-6">
+				<li><span class="search_detail_lable">建筑面积</span> <span
+					class="search_detail_content"><%=nh.getArea()%></span>
+				</li>
+			</ul>
+		</div>
+		<hr />
+
 		<h3 class="search_detail_title">人员信息</h3>
 		<div class="search_detail_body  long">
 			<ul class="col-md-6">
@@ -63,20 +78,7 @@
 		</div>
 		<hr />
 		
-		<h3 class="search_detail_title">新房信息</h3>
-		<div class="search_detail_body ">
-			<ul class="col-md-6">
-				<li><span class="search_detail_lable">房号</span> <span
-					class="search_detail_content"><%=nh.getHouse_no()%></span>
-				</li>
-			</ul>
-			<ul class="col-md-6">
-				<li><span class="search_detail_lable">建筑面积</span> <span
-					class="search_detail_content"><%=nh.getArea()%></span>
-				</li>
-			</ul>
-		</div>
-		<hr />
+
 
 
 

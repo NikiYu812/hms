@@ -47,12 +47,12 @@ public class database {
 				break;
 			}
 			
-			sql0 = "update tb_oldHouse oh set oh.person_id = ? where oh.id = ?";
+/*			sql0 = "update tb_oldHouse oh set oh.person_id = ? where oh.id = ?";
 			ps0 = conn.prepareStatement(sql0);
 			ps0.setString(1, oh.getPerson_id());
 			ps0.setInt(2,oh.getId());
 			int result = ps0.executeUpdate();
-			System.out.println(result);
+			System.out.println(result);*/
 			
 			rs0.close();
 			ps0.close();

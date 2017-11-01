@@ -10,12 +10,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="<%=basePath %>js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="<%=basePath %>js/jquery.min.js"><\/script>')</script>
     <script src="<%=basePath %>js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-			    <script type="text/javascript">
-		$(document).ready(function(){
-			$("#navbar> .navbar-nav> li").click(function(){
-				$(this).addClass("active").siblings().removeClass("active");
-			});
-		});
-		</script>
+		<script src="<%=basePath %>js/hms.js"></script>
   </body>
