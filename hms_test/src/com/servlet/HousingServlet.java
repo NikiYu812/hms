@@ -152,14 +152,117 @@ public class HousingServlet extends HttpServlet {
 				 * 
 				 * 查询房屋信息结束
 				 */
+			} else if (method.equals("1stChoose") || method == "1stChoose") {
+				/*
+				 * 
+				 * 第一轮抽签开始
+				 */
+				System.out.println("********第一轮抽签开始********");
+				HttpSession session = request.getSession();
+				String kw = (String) session.getAttribute("kw");
+				System.out.println("第一轮抽签kw:" + kw);
+				path = "1stChooseResult.jsp";
+
+				// 根据id查询出person信息，写入p中
+				sql = "select p.* from tb_person p where p.id = ?";
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, kw);
+				rs = ps.executeQuery();
+				Person p = new Person();
+				while (rs.next()) {
+					p.setId(rs.getString("id"));
+					p.setP0_name(rs.getString("p0_name"));
+					p.setP0_uid(rs.getString("p0_uid"));
+					p.setP0_state(rs.getString("p0_state"));
+					p.setP1_idcNo(rs.getString("p1_idcNo"));
+					p.setP1_name(rs.getString("p1_name"));
+					p.setTelNo(rs.getString("telNo"));
+					p.setOh_id(rs.getString("oh_id"));
+					p.setChoose_state(rs.getInt("choose_state"));
+					p.setChoose1_result(rs.getString("choose1_result"));
+					p.setChoose2_result(rs.getString("choose2_result"));
+					p.setNh_id(rs.getString("nh_id"));
+					p.setRemark(rs.getString("remark"));
+					System.out.println(p.toString());
+				}
+				
+				//防止刷新重复抽签
+				if (p.getChoose_state() == 1 || p.getChoose_state() == 2
+						|| ("1").equals(p.getChoose_state())
+						|| ("2").equals(p.getChoose_state())) {
+					System.out.println("防止刷新重复抽签启动");
+				} else {
+					System.out.println("开始抽签");
+					// 开始抽签（如果未抽签）
+					List<String> list = new LinkedList<String>();
+					sql = "select id from tb_1stChoose where isSelected = 0";
+					ps = conn.prepareStatement(sql);
+					rs = ps.executeQuery();
+					while (rs.next()) {
+						list.add(rs.getInt("id") + "");
+					}
+					// 计算列表大小
+					int size = list.size();
+					System.out.println("size:" + size);
+					// 随机产生大于0小于等于size的数r
+					Random rm = new Random();
+					int r = rm.nextInt(size) + 1;
+					System.out.println("random:" + r);
+					// 读取list中第r个数据的值，即为所选值
+					String selected = list.get(r - 1);
+					System.out.println("第一轮抽签select id:" + selected);
+
+					// 更新数据表tb_person信息
+					String update = "update tb_person set choose_state = ?, choose1_result = ? where id = ?";
+					ps = conn.prepareStatement(update);
+					ps.setInt(1, 1);
+					ps.setString(2, selected);
+					ps.setString(3, kw);
+					int result = ps.executeUpdate();
+					System.out.println("更新tb_person信息结果：" + ps.toString() + " "
+							+ result);
+
+					// 查询tb_1stChoose表中select_seq最大值
+					sql = "select max(c.select_seq) as 'seq' from tb_1stChoose c";
+					ps = conn.prepareStatement(sql);
+					rs = ps.executeQuery();
+					int seq = 0;
+					while (rs.next()) {
+						seq = Integer.parseInt(rs.getString("seq")) + 1;
+						System.out.println("seq:" + seq);
+					}
+
+					// 更新tb_1stChoose表信息
+					update = "update tb_1stChoose c set c.isSelected = ?, c.person_id=?, c.p0_name=?, c.select_seq=?, c.select_time=? where c.id=? ";
+					ps = conn.prepareStatement(update);
+					ps.setInt(1, 1);
+					ps.setString(2, p.getId());
+					ps.setString(3, p.getP0_name());
+					ps.setString(4, seq + "");
+					ps.setString(5, ct);
+					ps.setString(6, selected);
+					result = ps.executeUpdate();
+					System.out.println("更新tb_1stChoose信息结果：" + ps.toString()
+							+ " " + result);
+				}
+
+				JdbcUtil.closeAll(rs, ps, conn);
+				request.setAttribute("p", p);
+
+				System.out.println("********第一轮抽签结束********");
+				/*
+				 * 
+				 * 第一轮抽签结束
+				 * 
+				 */
 			} else if (method.equals("choose") || method == "choose") {
 				/*
 				 * 
-				 * 抽选新房屋开始
+				 * 抽选新房屋开始(第二轮抽签)
 				 */
 				HttpSession session = request.getSession();
 				String kw = (String) session.getAttribute("kw");
-				System.out.println("抽选新房kw:" + kw);
+				System.out.println("第二轮抽签kw:" + kw);
 				path = "chooseResult.jsp";
 				NewHouse nh = new NewHouse();
 
@@ -272,21 +375,17 @@ public class HousingServlet extends HttpServlet {
 
 				}
 
-				rs.close();
-				JdbcUtil.close(ps, conn);
+				JdbcUtil.closeAll(rs, ps, conn);
 				request.setAttribute("nh", nh);
 				/*
 				 * 
 				 * 抽选新房屋结束
 				 */
 
-
-			} else if (method.equals("listNh")
-					|| method == "listNh") {
+			} else if (method.equals("listNh") || method == "listNh") {
 				/*
 				 * 
 				 * 列出全部已选新房信息开始
-				 * 
 				 */
 				path = "listNewHouse.jsp";
 				NewHouseDao nhd = new NewHouseDaoImpl();
@@ -296,7 +395,6 @@ public class HousingServlet extends HttpServlet {
 				/*
 				 * 
 				 * 列出全部已选新房信息结束
-				 * 
 				 */
 			} else {
 				System.out.print("错错错");

@@ -46,8 +46,8 @@ hr {clear:both;}
  */
 .navbar-default{
 	height: 110px;
-	background-color: #fafafa;
-	border-bottom-color: #fafafa;
+	background-color: #f5f5f5;
+	border-bottom-color: #f3f3f3;
 	box-shadow: #f0f0f0 0 1px 1px;
 }
 .navbar  .navbar-header  img{
@@ -91,9 +91,9 @@ hr {clear:both;}
     margin: 50px auto;
     padding: 50px;
     padding-bottom: 20px;
-    background-color: #fafafa;
+    background-color: #f5f5f5;
     border-radius: 2px;
-    box-shadow: #aaa 1px 1px 1px;
+    box-shadow: #888 1px 1px 1px;
 }
 
 .hms_container  .hms_title{

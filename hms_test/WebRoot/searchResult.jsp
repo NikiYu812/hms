@@ -115,7 +115,7 @@
 	<%
 			if (choose == "1" || choose.equals("1")) {
 		%>
-		<form action="housingServlet?method=choose" method="post">
+		<form action="housingServlet?method=1stChoose" method="post">
 			<div id="btn">
 				<input type="submit" value="开始抽签"  class="btn  btn-primary btn-lg btn-hms-lg"/>
 			</div>

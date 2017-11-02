@@ -11,6 +11,8 @@ public class Person {
 	private String oh_id;
 	private String move_seq;
 	private int choose_state;
+	private String choose1_result;	//第一轮抽签结果
+	private String choose2_result;	//第二轮抽签结果
 	private String nh_id;
 	private String remark;
 	
@@ -75,6 +77,18 @@ public class Person {
 	public void setChoose_state(int choose_state) {
 		this.choose_state = choose_state;
 	}
+	public String getChoose1_result() {
+		return choose1_result;
+	}
+	public void setChoose1_result(String choose1_result) {
+		this.choose1_result = choose1_result;
+	}
+	public String getChoose2_result() {
+		return choose2_result;
+	}
+	public void setChoose2_result(String choose2_result) {
+		this.choose2_result = choose2_result;
+	}
 	public String getNh_id() {
 		return nh_id;
 	}
@@ -93,10 +107,11 @@ public class Person {
 				+ p0_uid + ", p0_state=" + p0_state + ", p1_name=" + p1_name
 				+ ", p1_idcNo=" + p1_idcNo + ", telNo=" + telNo + ", oh_id="
 				+ oh_id + ", move_seq=" + move_seq + ", choose_state="
-				+ choose_state + ", nh_id=" + nh_id + ", remark=" + remark
-				+ "]";
+				+ choose_state + ", choose1_result=" + choose1_result
+				+ ", choose2_result=" + choose2_result + ", nh_id=" + nh_id
+				+ ", remark=" + remark + "]";
 	}
-	
+
 	
 	
 }

@@ -8,6 +8,8 @@ select max(t1.move_seq+0) from tb_oldhouse t1;
 -- 已签协议
 select t1.* from tb_oldhouse t1 where sign_state = 1 order by id+0;
 
+SELECT oh.person_id,oh.p0_name,count(oh.person_id) from tb_oldhouse oh where oh.sign_state = 0 GROUP BY oh.person_id;
+
 select person_id,p0_name,count(person_id) from tb_oldhouse group by person_id having count(person_id)>1;
 
 select oh.*,p.* from tb_oldhouse oh, tb_person p where (oh.person_id = p.id) and p.p0_name = '李明';
@@ -19,4 +21,6 @@ select oh.*,p.* from tb_oldHouse oh,tb_person p  where oh.person_id = p.id order
 
 select oh.*,p.* from tb_oldHouse oh,tb_person p where oh.person_id = p.id and p.p0_name = '杜建红';
 
-select nh.*,p.* from tb_newHouse nh,tb_person p  where nh.person_id = p.id order by nh.select_seq+0;
+select nh.*,p.* from tb_newHouse nh left JOIN tb_person p  ON nh.person_id = p.id order by nh.select_seq+0 DESC;
+
+UPDATE tb_person p set p.sign_state = (SELECT sign_state FROM tb_oldhouse where person_id = p.id);
