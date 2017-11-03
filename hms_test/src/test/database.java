@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bean.OldHouse;
+import com.bean.Person;
 import com.util.JdbcUtil;
 
 public class database {
@@ -21,45 +22,37 @@ public class database {
 		Connection conn = JdbcUtil.getConnection();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "";
 		
-		sql = "select * from tb_oldHouse";
+		//把oldHouse表中的sign_state赋值到person表中
+		String sql = "select * from tb_person";
 		ps = conn.prepareStatement(sql);
 		rs = ps.executeQuery();
-		List<OldHouse> ohs = new ArrayList<OldHouse>();
+		List<Person> ss = new ArrayList<Person>();
 		while (rs.next()) {
-			OldHouse oh = new OldHouse();
-			oh.setId(rs.getInt("id"));
-			oh.setHouse_no(rs.getString("house_no"));
-			oh.setP0_name(rs.getString("p0_name"));
-			System.out.println("id:"+oh.getId()+"\nhouse_no:"+oh.getHouse_no()+"\np0_name:"+oh.getP0_name());
-			ohs.add(oh);
-			
-			String person_id = "";
-			String sql0 = "select * from tb_person where p0_name=?";
-			PreparedStatement ps0 = conn.prepareStatement(sql0);
-			ps0.setString(1, oh.getP0_name());
-			ResultSet rs0 = ps0.executeQuery();
-			
-			while(rs0.next()){
-				oh.setPerson_id( rs0.getString("id"));
-				System.out.println(oh.getPerson_id());
-				break;
+			Person p = new Person();
+			p.setId(rs.getString("id"));
+			//根据person_id找到oldHouse,读取oldHouse中sign_state的值
+			String sql1 = "select * from tb_oldHouse where person_id = ?";
+			PreparedStatement ps1 = conn.prepareStatement(sql1);
+			ps1.setString(1, p.getId());
+			ResultSet rs1 = ps1.executeQuery();
+			while(rs1.next()){
+				p.setSign_state(rs1.getInt("sign_state"));
 			}
-			
-/*			sql0 = "update tb_oldHouse oh set oh.person_id = ? where oh.id = ?";
-			ps0 = conn.prepareStatement(sql0);
-			ps0.setString(1, oh.getPerson_id());
-			ps0.setInt(2,oh.getId());
-			int result = ps0.executeUpdate();
-			System.out.println(result);*/
-			
-			rs0.close();
-			ps0.close();
-			
+			//更新person表中sign_state的值
+			 sql1="update tb_person  p set p.sign_state = ? where p.id = ?";
+			 ps1 = conn.prepareStatement(sql1);
+			 ps1.setInt(1, p.getSign_state());
+			 ps1.setString(2, p.getId());
+			 int result = ps1.executeUpdate();
+			 System.out.println(result);
+			 
+			 rs1.close();
+			 ps1.close();
+			System.out.println(p.toString());
+			ss.add(p);
 		}
-		rs.close();
-		JdbcUtil.close(ps, conn);
+		JdbcUtil.closeAll(rs, ps, conn);
 		
 	}
 

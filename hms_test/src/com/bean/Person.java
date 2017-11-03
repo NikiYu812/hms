@@ -9,6 +9,8 @@ public class Person {
 	private String p1_idcNo;
 	private String telNo;
 	private String oh_id;
+	private int sign_state;
+	private int move_state;
 	private String move_seq;
 	private int choose_state;
 	private String choose1_result;	//第一轮抽签结果
@@ -64,6 +66,18 @@ public class Person {
 	}
 	public void setOh_id(String oh_id) {
 		this.oh_id = oh_id;
+	}
+	public int getSign_state() {
+		return sign_state;
+	}
+	public void setSign_state(int sign_state) {
+		this.sign_state = sign_state;
+	}
+	public int getMove_state() {
+		return move_state;
+	}
+	public void setMove_state(int move_state) {
+		this.move_state = move_state;
 	}
 	public String getMove_seq() {
 		return move_seq;

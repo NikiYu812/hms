@@ -16,7 +16,7 @@
 	NewHouse nh = (NewHouse) request.getAttribute("nh");
 	List<OldHouse> ss = (List<OldHouse>) request.getAttribute("ss");
 	OldHouse oh = ss.get(0);
-	kw = oh.getPerson_id();
+	kw = oh.getPerson_id();								//把person_id赋值给kw
 	String choose_state = "未抽签";
 	String choose_state_class = "red";
 	String sign_state = "协议未签";
@@ -114,16 +114,22 @@
 			<hr />
 	<%
 			if (choose == "1" || choose.equals("1")) {
+				session.setAttribute("kw", kw);
 		%>
 		<form action="housingServlet?method=1stChoose" method="post">
 			<div id="btn">
-				<input type="submit" value="开始抽签"  class="btn  btn-primary btn-lg btn-hms-lg"/>
+				<input type="submit" value="开始第一轮抽签"  class="btn  btn-primary btn-lg btn-hms-lg"/>
 			</div>
 		</form>
-		<%
-			session.setAttribute("kw", kw);
-			}
+		<%}else if(choose == "2" || choose.equals("2")){
+						session.setAttribute("kw", kw);
 		%>
+		<form action="housingServlet?method=choose" method="post">
+			<div id="btn">
+				<input type="submit" value="开始第二轮抽签"  class="btn  btn-primary btn-lg btn-hms-lg"/>
+			</div>
+		</form>		
+		<% }%>
 	</div>
 </div>
 <jsp:include page="layout/footer.jsp" flush="true" />

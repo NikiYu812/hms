@@ -66,12 +66,20 @@ public class HousingServlet extends HttpServlet {
 				 * 查询房屋信息开始 按关键字查询旧房信息（房号，原承租人姓名，原承租人职工号，协议签署人身份号）
 				 */
 			} else if (method.equals("find") || method == "find") {
+				System.out.println("********查询信息开始********");
+				
 				path = "searchResult.jsp";
+				
 				String choose = request.getParameter("choose");
 				System.out.println("choose:" + choose);
+				
 				String kw = request.getParameter("kw");
-				String person_id = "";
 				System.out.println("kw:" + kw);
+				
+				String msg = "";
+				
+				OldHouse oh = new OldHouse();
+				NewHouse nh = new NewHouse();
 
 				sql = "select oh.*,p.* from tb_oldHouse oh,tb_person p  where oh.person_id = p.id and (oh.house_no= ? or p.p0_name = ? or p.p0_uid = ? or p.p1_idcNo = ?)";
 				ps = conn.prepareStatement(sql);
@@ -80,40 +88,7 @@ public class HousingServlet extends HttpServlet {
 				ps.setString(3, kw);
 				ps.setString(4, kw);
 				rs = ps.executeQuery();
-				while (rs.next()) {
-					person_id = rs.getString("person_id");
-					// 判断如果未签协议，或者如果已抽签，不显示抽签按钮
-					int sign_state = rs.getInt("sign_state");
-					int choose_state = rs.getInt("choose_state");
-					if (sign_state == 0 || choose_state == 1) {
-						choose = "0";
-					}
-				}
-
-				// 根据person_id查询新房屋信息
-				sql = "select nh.* from tb_newhouse nh where nh.person_id = ?";
-				ps = conn.prepareStatement(sql);
-				ps.setString(1, person_id);
-				rs = ps.executeQuery();
-				NewHouse nh = new NewHouse();
-				while (rs.next()) {
-					nh.setId(rs.getInt("id"));
-					nh.setHouse_no(rs.getString("house_no"));
-					nh.setChoose_id(rs.getString("choose_id"));
-					nh.setIsSelected(rs.getInt("isSelected"));
-					nh.setArea(rs.getString("area"));
-					nh.setPerson_id(rs.getString("person_id"));
-					nh.setP0_name(rs.getString("p0_name"));
-					nh.setSelect_seq(rs.getString("select_seq"));
-					nh.setSelect_time(rs.getString("select_time"));
-					nh.setRemark(rs.getString("remark"));
-				}
-
-				sql = "select oh.*,p.* from tb_oldHouse oh,tb_person p where oh.person_id = p.id and oh.person_id = ?";
-				ps = conn.prepareStatement(sql);
-				ps.setString(1, person_id);
-				rs = ps.executeQuery();
-
+				
 				List<OldHouse> ss = new ArrayList<OldHouse>();
 				while (rs.next()) {
 					OldHouse s = new OldHouse();
@@ -132,22 +107,58 @@ public class HousingServlet extends HttpServlet {
 					s.setMove_state(rs.getInt("move_state"));
 					s.setMove_seq(rs.getString("move_seq"));
 					s.setChoose_state(rs.getInt("choose_state"));
-					// 后台打印，试看有没有拿到
-					String ms = "ID：" + rs.getInt("id") + " 房号："
-							+ rs.getString("house_no");
-					System.out.println(ms);
+					System.out.println(s.toString());
 					ss.add(s);
 				}
-
-				// ArrayList放进request的属性里，这样jsp页面就能request.getAttribute("ss")
-				// 拿出ArrayList了。
-				request.setAttribute("nh", nh);
+				
+				oh = ss.get(0);
+				System.out.println("oh:"+oh.toString());
+					
+				// 判断如果未签协议，或者如果已抽签，不显示抽签按钮
+				
+				if(choose=="1"||choose.equals("1")){
+					//判断第一轮抽签按钮显示条件
+					if(oh.getSign_state() == 0 || oh.getMove_state() == 0 || oh.getChoose_state() != 0){
+						choose = "0";
+					}
+				}else if(choose=="2"||choose.equals("2")){
+					if(oh.getChoose_state() != 1){
+						choose = "0";
+					}
+				}else{
+					choose = "0";
+				}
+				System.out.println("choose:"+choose);
+				
+				//如果已经第二轮抽签choose_state = 2
+				if(oh.getChoose_state()==2){
+					// 根据person_id查询新房屋信息
+					sql = "select nh.* from tb_newhouse nh where nh.person_id = ?";
+					ps = conn.prepareStatement(sql);
+					ps.setString(1, oh.getPerson_id());
+					rs = ps.executeQuery();
+					while (rs.next()) {
+						nh.setId(rs.getInt("id"));
+						nh.setHouse_no(rs.getString("house_no"));
+						nh.setChoose_id(rs.getString("choose_id"));
+						nh.setIsSelected(rs.getInt("isSelected"));
+						nh.setArea(rs.getString("area"));
+						nh.setPerson_id(rs.getString("person_id"));
+						nh.setP0_name(rs.getString("p0_name"));
+						nh.setSelect_seq(rs.getString("select_seq"));
+						nh.setSelect_time(rs.getString("select_time"));
+						nh.setRemark(rs.getString("remark"));
+					}
+					
+				}
+			
 				request.setAttribute("ss", ss);
-				request.setAttribute("method", method);
+				request.setAttribute("nh", nh);
 				request.setAttribute("kw", kw);
 				request.setAttribute("choose", choose);
-				rs.close();
-				ps.close();
+				request.setAttribute("msg", msg);
+				JdbcUtil.closeAll(rs, ps, conn);
+				System.out.println("********查询信息结束********");
 				/*
 				 * 
 				 * 查询房屋信息结束
@@ -221,7 +232,10 @@ public class HousingServlet extends HttpServlet {
 					int result = ps.executeUpdate();
 					System.out.println("更新tb_person信息结果：" + ps.toString() + " "
 							+ result);
-
+					
+					p.setChoose_state(1);
+					p.setChoose1_result(selected);
+					
 					// 查询tb_1stChoose表中select_seq最大值
 					sql = "select max(c.select_seq) as 'seq' from tb_1stChoose c";
 					ps = conn.prepareStatement(sql);
@@ -258,22 +272,25 @@ public class HousingServlet extends HttpServlet {
 			} else if (method.equals("choose") || method == "choose") {
 				/*
 				 * 
-				 * 抽选新房屋开始(第二轮抽签)
+				 * 第二轮抽签开始
+				 * 
 				 */
+				System.out.println("********第二轮抽签开始********");
 				HttpSession session = request.getSession();
 				String kw = (String) session.getAttribute("kw");
-				System.out.println("第二轮抽签kw:" + kw);
+				System.out.println("kw:" + kw);
 				path = "chooseResult.jsp";
+				
 				NewHouse nh = new NewHouse();
-
-				// 根据person_id查询person_id,p0_name,写入nh
-				sql = "select t2.* from tb_oldHouse t1,tb_person t2 where t1.person_id = t2.id  and t1.person_id = ?";
+				Person p = new Person();
+				
+				// 根据id查询出person信息，写入p和nh中
+				sql = "select p.* from tb_person p where p.id = ?";
 				ps = conn.prepareStatement(sql);
 				ps.setString(1, kw);
 				rs = ps.executeQuery();
-
+				
 				while (rs.next()) {
-					Person p = new Person();
 					p.setId(rs.getString("id"));
 					p.setP0_name(rs.getString("p0_name"));
 					p.setP0_uid(rs.getString("p0_uid"));
@@ -281,31 +298,21 @@ public class HousingServlet extends HttpServlet {
 					p.setP1_idcNo(rs.getString("p1_idcNo"));
 					p.setP1_name(rs.getString("p1_name"));
 					p.setTelNo(rs.getString("telNo"));
+					p.setOh_id(rs.getString("oh_id"));
 					p.setChoose_state(rs.getInt("choose_state"));
-					nh.setPerson(p);
-					System.out.println(nh.getPerson().getId()
-							+ nh.getPerson().getP0_name());
+					p.setChoose1_result(rs.getString("choose1_result"));
+					p.setChoose2_result(rs.getString("choose2_result"));
+					p.setNh_id(rs.getString("nh_id"));
+					p.setRemark(rs.getString("remark"));			
+					System.out.println(p.toString());
+					
 				}
 
 				// 防止刷新页面重复抽签
-				if (nh.getPerson().getChoose_state() == 1
-						|| ("1").equals(nh.getPerson().getChoose_state())) {
+				if (p.getChoose_state() == 2
+						|| ("2").equals(p.getChoose_state())) {
 					// 如果已经抽过签，显示抽签新房源信息
-					sql = "select nh.* from tb_newHouse nh where nh.person_id = ?";
-					ps = conn.prepareStatement(sql);
-					ps.setString(1, nh.getPerson().getId());
-					rs = ps.executeQuery();
-
-					while (rs.next()) {
-						nh.setHouse_no(rs.getString("house_no"));
-						nh.setChoose_id(rs.getString("choose_id"));
-						nh.setIsSelected(rs.getInt("isSelected"));
-						nh.setArea(rs.getString("area"));
-						nh.setPerson_id(rs.getString("person_id"));
-						nh.setSelect_seq(rs.getString("select_seq"));
-						nh.setSelect_time(rs.getString("select_time"));
-						nh.setRemark(rs.getString("remark"));
-					}
+					System.out.println("防止刷新重复抽签启动");
 
 				} else {
 
@@ -321,11 +328,10 @@ public class HousingServlet extends HttpServlet {
 					}
 					// 计算列表大小
 					int size = list.size();
-					System.out.println("size:" + size);
 					// 随机产生大于0小于等于size的数r
 					Random rm = new Random();
 					int r = rm.nextInt(size) + 1;
-					System.out.println("random:" + r);
+//					System.out.println("random:" + r);
 					// 读取list(r)的值
 					String selected = list.get(r - 1);
 					nh.setId(Integer.parseInt(selected));
@@ -338,11 +344,12 @@ public class HousingServlet extends HttpServlet {
 					rs = ps.executeQuery();
 					while (rs.next()) {
 						// System.out.println(rs.getString("house_no"));
+						nh.setId(rs.getInt("id"));
 						nh.setArea(rs.getString("area"));
 						nh.setChoose_id(rs.getString("choose_id"));
 						nh.setHouse_no(rs.getString("house_no"));
-						nh.setId(rs.getInt("id"));
 						nh.setSelect_time(ct);
+						System.out.println(nh.toString());
 					}
 
 					sql = "select max(t.select_seq) as 'seq' from tb_newHouse t ";
@@ -350,36 +357,61 @@ public class HousingServlet extends HttpServlet {
 					rs = ps.executeQuery();
 					while (rs.next()) {
 						int seq = Integer.parseInt(rs.getString("seq")) + 1;
-						System.out.println(seq);
+						System.out.println("seq:"+seq);
 						nh.setSelect_seq(seq + "");
 					}
 
 					// 更新新房源表数据
 					String update = "update tb_newHouse set isSelected = 1,person_id=?,p0_name=?, select_seq = ?,select_time=? where id = ?";
 					ps = conn.prepareStatement(update);
-					ps.setString(1, nh.getPerson().getId());
-					ps.setString(2, nh.getPerson().getP0_name());
+					ps.setString(1, p.getId());
+					ps.setString(2, p.getP0_name());
 					ps.setString(3, nh.getSelect_seq());
 					ps.setString(4, nh.getSelect_time());
 					ps.setString(5, selected);
 					int result = ps.executeUpdate();
-					System.out.println(result);
+					System.out.println("更新newHouse:"+result+" "+ps.toString());
+					
 					// 更新人员信息表数据
-					update = "update tb_person set choose_state = ?, nh_id = ? where id = ?";
+					update = "update tb_person set choose_state = ?, choose2_result = ?, nh_id = ? where id = ?";
 					ps = conn.prepareStatement(update);
-					ps.setInt(1, 1);
-					ps.setString(2, nh.getId() + "");
-					ps.setString(3, nh.getPerson().getId());
+					ps.setInt(1, 2);
+					ps.setString(2, nh.getChoose_id());
+					ps.setString(3, nh.getId() + "");
+					ps.setString(4, p.getId());
 					result = ps.executeUpdate();
-					System.out.println(result);
-
+					System.out.println("更新person:"+result+" "+ps.toString());
+					
+					p.setChoose_state(2);
+					p.setChoose2_result(nh.getChoose_id());
+					p.setNh_id(nh.getId()+"");
 				}
-
+				
+				sql = "select nh.* from tb_newHouse nh where nh.person_id = ?";
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, p.getId());
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					nh.setHouse_no(rs.getString("house_no"));
+					nh.setChoose_id(rs.getString("choose_id"));
+					nh.setIsSelected(rs.getInt("isSelected"));
+					nh.setArea(rs.getString("area"));
+					nh.setPerson_id(rs.getString("person_id"));
+					nh.setSelect_seq(rs.getString("select_seq"));
+					nh.setSelect_time(rs.getString("select_time"));
+					nh.setRemark(rs.getString("remark"));
+					nh.setPerson(p);
+					System.out.println(nh.toString());
+				}
+				
+				
 				JdbcUtil.closeAll(rs, ps, conn);
 				request.setAttribute("nh", nh);
+				
+				
 				/*
 				 * 
-				 * 抽选新房屋结束
+				 * 第二轮抽签结束
 				 */
 
 			} else if (method.equals("listNh") || method == "listNh") {

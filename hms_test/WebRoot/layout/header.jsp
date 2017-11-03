@@ -62,8 +62,9 @@
 							<li class=""><a href="housingServlet?method=list">旧房屋列表</a></li>
 							<li><a href="search.jsp">信息查询</a></li>
 							<li role="separator" class="divider"></li>
+							<li><a href="search_choose1.jsp">第一轮抽签</a></li>
+							<li><a href="search_choose2.jsp">第二轮抽签</a></li>
 							<li><a href="housingServlet?method=listNh ">新房源列表</a></li>
-							<li><a href="search_choose.jsp">开始抽签</a></li>
 						</ul>
 					</li>
 				</ul>

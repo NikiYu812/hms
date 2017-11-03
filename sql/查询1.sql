@@ -24,3 +24,7 @@ select oh.*,p.* from tb_oldHouse oh,tb_person p where oh.person_id = p.id and p.
 select nh.*,p.* from tb_newHouse nh left JOIN tb_person p  ON nh.person_id = p.id order by nh.select_seq+0 DESC;
 
 UPDATE tb_person p set p.sign_state = (SELECT sign_state FROM tb_oldhouse where person_id = p.id);
+
+-- 未签协议人员 
+select * from tb_person p where p.sign_state = 0;
+select oh.person_id,oh.p0_name,count(p0_name) from tb_oldHouse oh where oh.sign_state = 0 group by oh.person_id ;

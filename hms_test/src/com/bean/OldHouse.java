@@ -19,6 +19,7 @@ public class OldHouse {
 	private int move_state;
 	private String move_seq;
 	private int choose_state;
+
 	
 
 	public Person getPerson() {
@@ -128,6 +129,7 @@ public class OldHouse {
 				+ move_state + ", move_seq=" + move_seq + ", choose_state="
 				+ choose_state + "]";
 	}
+
 	
 	
 	
