@@ -28,3 +28,8 @@ UPDATE tb_person p set p.sign_state = (SELECT sign_state FROM tb_oldhouse where 
 -- 未签协议人员 
 select * from tb_person p where p.sign_state = 0;
 select oh.person_id,oh.p0_name,count(p0_name) from tb_oldHouse oh where oh.sign_state = 0 group by oh.person_id ;
+
+
+select p.* from tb_person p order by p.choose2_result DESC,p.choose1_result desc,p.choose_state desc,p.sign_state desc,id+0;
+
+select oh.*,p.* from tb_oldHouse oh,tb_person p  where oh.person_id = p.id and (oh.house_no= ? or p.p0_name = ? or p.p0_uid = ? or p.p1_idcNo = ?)
