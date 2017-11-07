@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-11-06 04:22:16
+Date: 2017-11-07 13:23:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,7 +47,7 @@ INSERT INTO `tb_choose1` VALUES ('108', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('109', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('11', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('110', '0', '', null, '0', '', '');
-INSERT INTO `tb_choose1` VALUES ('111', '0', '', null, '0', '', '');
+INSERT INTO `tb_choose1` VALUES ('111', '1', '2162', '马维列', '9', '2017-11-06 16:40:13', '');
 INSERT INTO `tb_choose1` VALUES ('112', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('113', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('114', '1', '2325', '毕素兰', '5', '2017-11-05 23:43:55', '');
@@ -142,7 +142,7 @@ INSERT INTO `tb_choose1` VALUES ('194', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('195', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('196', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('197', '0', '', null, '0', '', '');
-INSERT INTO `tb_choose1` VALUES ('198', '0', '', null, '0', '', '');
+INSERT INTO `tb_choose1` VALUES ('198', '1', '2077', '曲长义', '10', '2017-11-07 13:19:08', '');
 INSERT INTO `tb_choose1` VALUES ('199', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('2', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('20', '0', '', null, '0', '', '');
@@ -247,7 +247,7 @@ INSERT INTO `tb_choose1` VALUES ('289', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('29', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('290', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('291', '0', '', null, '0', '', '');
-INSERT INTO `tb_choose1` VALUES ('292', '0', '', null, '0', '', '');
+INSERT INTO `tb_choose1` VALUES ('292', '1', '2057', '郭维忠', '10', '2017-11-07 12:36:35', '');
 INSERT INTO `tb_choose1` VALUES ('293', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('294', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('295', '0', '', null, '0', '', '');
@@ -352,7 +352,7 @@ INSERT INTO `tb_choose1` VALUES ('383', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('384', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('385', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('386', '0', '', null, '0', '', '');
-INSERT INTO `tb_choose1` VALUES ('387', '0', '', null, '0', '', '');
+INSERT INTO `tb_choose1` VALUES ('387', '1', '2079', '陈英', '10', '2017-11-07 13:15:38', '');
 INSERT INTO `tb_choose1` VALUES ('388', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('389', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('39', '0', '', null, '0', '', '');

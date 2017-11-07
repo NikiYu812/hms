@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-11-06 04:22:47
+Date: 2017-11-07 13:22:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,7 +47,7 @@ INSERT INTO `tb_choose1` VALUES ('108', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('109', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('11', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('110', '0', '', null, '0', '', '');
-INSERT INTO `tb_choose1` VALUES ('111', '0', '', null, '0', '', '');
+INSERT INTO `tb_choose1` VALUES ('111', '1', '2162', '马维列', '9', '2017-11-06 16:40:13', '');
 INSERT INTO `tb_choose1` VALUES ('112', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('113', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('114', '1', '2325', '毕素兰', '5', '2017-11-05 23:43:55', '');
@@ -142,7 +142,7 @@ INSERT INTO `tb_choose1` VALUES ('194', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('195', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('196', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('197', '0', '', null, '0', '', '');
-INSERT INTO `tb_choose1` VALUES ('198', '0', '', null, '0', '', '');
+INSERT INTO `tb_choose1` VALUES ('198', '1', '2077', '曲长义', '10', '2017-11-07 13:19:08', '');
 INSERT INTO `tb_choose1` VALUES ('199', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('2', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('20', '0', '', null, '0', '', '');
@@ -247,7 +247,7 @@ INSERT INTO `tb_choose1` VALUES ('289', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('29', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('290', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('291', '0', '', null, '0', '', '');
-INSERT INTO `tb_choose1` VALUES ('292', '0', '', null, '0', '', '');
+INSERT INTO `tb_choose1` VALUES ('292', '1', '2057', '郭维忠', '10', '2017-11-07 12:36:35', '');
 INSERT INTO `tb_choose1` VALUES ('293', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('294', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('295', '0', '', null, '0', '', '');
@@ -352,7 +352,7 @@ INSERT INTO `tb_choose1` VALUES ('383', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('384', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('385', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('386', '0', '', null, '0', '', '');
-INSERT INTO `tb_choose1` VALUES ('387', '0', '', null, '0', '', '');
+INSERT INTO `tb_choose1` VALUES ('387', '1', '2079', '陈英', '10', '2017-11-07 13:15:38', '');
 INSERT INTO `tb_choose1` VALUES ('388', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('389', '0', '', null, '0', '', '');
 INSERT INTO `tb_choose1` VALUES ('39', '0', '', null, '0', '', '');
@@ -984,7 +984,7 @@ INSERT INTO `tb_newhouse` VALUES ('495', '500-1-475', '475', '0', '2', '85', '',
 INSERT INTO `tb_newhouse` VALUES ('496', '500-1-476', '476', '0', '2', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('497', '500-1-477', '477', '0', '2', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('498', '500-1-478', '478', '0', '2', '85', '', '', '0', '', null);
-INSERT INTO `tb_newhouse` VALUES ('499', '500-1-479', '479', '0', '2', '85', '', '', '0', '', null);
+INSERT INTO `tb_newhouse` VALUES ('499', '500-1-479', '479', '1', '2', '85', '2077', '曲长义', '10', '2017-11-07 13:19:38', null);
 INSERT INTO `tb_newhouse` VALUES ('50', '500-1-30', '30', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('500', '500-1-480', '480', '0', '2', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('501', '500-1-481', '481', '0', '2', '85', '', '', '0', '', null);
@@ -1030,7 +1030,7 @@ INSERT INTO `tb_newhouse` VALUES ('70', '500-1-50', '50', '0', '1', '85', '', ''
 INSERT INTO `tb_newhouse` VALUES ('71', '500-1-51', '51', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('72', '500-1-52', '52', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('73', '500-1-53', '53', '0', '1', '85', '', '', '0', '', null);
-INSERT INTO `tb_newhouse` VALUES ('74', '500-1-54', '54', '0', '1', '85', '', '', '0', '', null);
+INSERT INTO `tb_newhouse` VALUES ('74', '500-1-54', '54', '1', '1', '85', '2079', '陈英', '9', '2017-11-07 13:17:18', null);
 INSERT INTO `tb_newhouse` VALUES ('75', '500-1-55', '55', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('76', '500-1-56', '56', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('77', '500-1-57', '57', '0', '1', '85', '', '', '0', '', null);
@@ -1041,7 +1041,7 @@ INSERT INTO `tb_newhouse` VALUES ('81', '500-1-61', '61', '0', '1', '85', '', ''
 INSERT INTO `tb_newhouse` VALUES ('82', '500-1-62', '62', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('83', '500-1-63', '63', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('84', '500-1-64', '64', '0', '1', '85', '', '', '0', '', null);
-INSERT INTO `tb_newhouse` VALUES ('85', '500-1-65', '65', '0', '1', '85', '', '', '0', '', null);
+INSERT INTO `tb_newhouse` VALUES ('85', '500-1-65', '65', '1', '1', '85', '2162', '马维列', '8', '2017-11-06 16:40:37', null);
 INSERT INTO `tb_newhouse` VALUES ('86', '500-1-66', '66', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('87', '500-1-67', '67', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('88', '500-1-68', '68', '0', '1', '85', '', '', '0', '', null);
@@ -1500,7 +1500,7 @@ INSERT INTO `tb_person` VALUES ('2053', '陆建林', '1847', '1', '陆建林', '
 INSERT INTO `tb_person` VALUES ('2054', '刘淑清', '2578', '2', '刘淑清', '210103194504060923', '13709881255', '10', '1', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2055', '李凯', '3266', '1', '李凯', '210103197301220919', '13940161686', '11', '1', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2056', '易文平', '3115', '1', '易文平', '210112196904010234', '13504980871', '12', '1', '0', '0', '0', '', '', '', '');
-INSERT INTO `tb_person` VALUES ('2057', '郭维忠', '1547', '1', '郭维忠', '21010419630905403X', '18802495395', '13', '1', '0', '0', '0', '', '', '', '');
+INSERT INTO `tb_person` VALUES ('2057', '郭维忠', '1547', '1', '郭维忠', '21010419630905403X', '18802495395', '13', '1', '0', '0', '1', '292', '', '', '');
 INSERT INTO `tb_person` VALUES ('2058', '闫国光', '1550', '1', '闫国光', '210103196309030912', '15940205028', '14', '1', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2059', '王宝昌', '652', '2', '王宝昌', '210103193905090918', '13019378742', '15', '1', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2060', '杨水清', '2593', '2', '杨水清', '210103194107200910', '13709881255', '16', '1', '0', '0', '0', '', '', '', '');
@@ -1520,9 +1520,9 @@ INSERT INTO `tb_person` VALUES ('2073', '蔡铁成', '1548', '2', '蔡铁成', '
 INSERT INTO `tb_person` VALUES ('2074', '杨兆华', '9125', '3', '', '', '13674232413', '30', '0', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2075', '杜云霞', '9008', '2', '杜云霞', '21010319271216092x', '13614011053', '31', '1', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2076', '于洪振', 'SW139', '3', '', '', '13889165389', '32', '0', '0', '0', '0', '', '', '', '');
-INSERT INTO `tb_person` VALUES ('2077', '曲长义', '9112', '3', '齐玉香', '210103193702260948', '13804213397', '33', '1', '0', '0', '0', '', '', '', '');
+INSERT INTO `tb_person` VALUES ('2077', '曲长义', '9112', '3', '齐玉香', '210103193702260948', '13804213397', '33', '1', '0', '0', '2', '198', '479', '499', '');
 INSERT INTO `tb_person` VALUES ('2078', '刘志奇', '1302', '2', '刘志奇', '210103195110230939', '13897944945', '34', '1', '0', '0', '0', '', '', '', '');
-INSERT INTO `tb_person` VALUES ('2079', '陈英', '1364', '1', '陈英', '210103196209090942', '13940232325', '35', '1', '0', '0', '0', '', '', '', '');
+INSERT INTO `tb_person` VALUES ('2079', '陈英', '1364', '1', '陈英', '210103196209090942', '13940232325', '35', '1', '0', '0', '2', '387', '54', '74', '');
 INSERT INTO `tb_person` VALUES ('2080', '于永学', '1838', '2', '', '', '13149829658;24289270', '36', '0', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2081', '常威', '3595', '1', '常威', '21010419770228141x', '13889105172', '37', '1', '0', '0', '2', '301', '325', '345', '');
 INSERT INTO `tb_person` VALUES ('2082', '朱威', '3850', '1', '朱威', '210104197904012031', '17790947928', '38', '1', '0', '0', '2', '239', '200', '220', '');
@@ -1605,7 +1605,7 @@ INSERT INTO `tb_person` VALUES ('2158', '展玉琴', '9224', '2', '展玉琴', '
 INSERT INTO `tb_person` VALUES ('2159', '杜建红', '3703', '1', '杜建红', '132428197507140418', '13840177163', '115', '1', '0', '0', '1', '88', '', '', '');
 INSERT INTO `tb_person` VALUES ('2160', '刘燕东', '311', '1', '刘燕东', '210103196401220911', '13555782698', '116', '1', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2161', '孙丘艺', '2356', '1', '孙丘艺', '210103196809180925', '13079288260', '117', '1', '0', '0', '0', '', '', '', '');
-INSERT INTO `tb_person` VALUES ('2162', '马维列', '2563', '3', '周兰', '210104195807141422', '15640573059', '118##253', '1', '0', '0', '0', '', '', '', '');
+INSERT INTO `tb_person` VALUES ('2162', '马维列', '2563', '3', '周兰', '210104195807141422', '15640573059', '118##253', '1', '0', '0', '2', '111', '65', '85', '');
 INSERT INTO `tb_person` VALUES ('2163', '蔡宝泉', '3337', '5', '蔡宝泉', '210103197801240916', '15940543066', '119', '1', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2164', '陶玉新', '9180', '2', '陶玉新', '210103193312150954', '13998201023', '120', '1', '0', '0', '0', '', '', '', '');
 INSERT INTO `tb_person` VALUES ('2165', '李兆红', '3786', '1', '李兆红', '232126197610102211', '13889314478', '121', '1', '0', '0', '0', '', '', '', '');

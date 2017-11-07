@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-11-06 04:22:26
+Date: 2017-11-07 13:23:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -465,7 +465,7 @@ INSERT INTO `tb_newhouse` VALUES ('495', '500-1-475', '475', '0', '2', '85', '',
 INSERT INTO `tb_newhouse` VALUES ('496', '500-1-476', '476', '0', '2', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('497', '500-1-477', '477', '0', '2', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('498', '500-1-478', '478', '0', '2', '85', '', '', '0', '', null);
-INSERT INTO `tb_newhouse` VALUES ('499', '500-1-479', '479', '0', '2', '85', '', '', '0', '', null);
+INSERT INTO `tb_newhouse` VALUES ('499', '500-1-479', '479', '1', '2', '85', '2077', '曲长义', '10', '2017-11-07 13:19:38', null);
 INSERT INTO `tb_newhouse` VALUES ('50', '500-1-30', '30', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('500', '500-1-480', '480', '0', '2', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('501', '500-1-481', '481', '0', '2', '85', '', '', '0', '', null);
@@ -511,7 +511,7 @@ INSERT INTO `tb_newhouse` VALUES ('70', '500-1-50', '50', '0', '1', '85', '', ''
 INSERT INTO `tb_newhouse` VALUES ('71', '500-1-51', '51', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('72', '500-1-52', '52', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('73', '500-1-53', '53', '0', '1', '85', '', '', '0', '', null);
-INSERT INTO `tb_newhouse` VALUES ('74', '500-1-54', '54', '0', '1', '85', '', '', '0', '', null);
+INSERT INTO `tb_newhouse` VALUES ('74', '500-1-54', '54', '1', '1', '85', '2079', '陈英', '9', '2017-11-07 13:17:18', null);
 INSERT INTO `tb_newhouse` VALUES ('75', '500-1-55', '55', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('76', '500-1-56', '56', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('77', '500-1-57', '57', '0', '1', '85', '', '', '0', '', null);
@@ -522,7 +522,7 @@ INSERT INTO `tb_newhouse` VALUES ('81', '500-1-61', '61', '0', '1', '85', '', ''
 INSERT INTO `tb_newhouse` VALUES ('82', '500-1-62', '62', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('83', '500-1-63', '63', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('84', '500-1-64', '64', '0', '1', '85', '', '', '0', '', null);
-INSERT INTO `tb_newhouse` VALUES ('85', '500-1-65', '65', '0', '1', '85', '', '', '0', '', null);
+INSERT INTO `tb_newhouse` VALUES ('85', '500-1-65', '65', '1', '1', '85', '2162', '马维列', '8', '2017-11-06 16:40:37', null);
 INSERT INTO `tb_newhouse` VALUES ('86', '500-1-66', '66', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('87', '500-1-67', '67', '0', '1', '85', '', '', '0', '', null);
 INSERT INTO `tb_newhouse` VALUES ('88', '500-1-68', '68', '0', '1', '85', '', '', '0', '', null);
