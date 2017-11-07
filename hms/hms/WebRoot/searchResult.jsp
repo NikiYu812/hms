@@ -71,19 +71,19 @@
 					<h5>/* 第二轮抽签结果 */</h5>
 					<ul class="col-md-2">
 						<li><span class="search_detail_lable">抽中号码</span> <span
-							class="search_detail_content">${p.newHouse.choose_id }</span></li>
+							class="search_detail_content">${person.newHouse.choose_id }</span></li>
 					</ul>
 					<ul class="col-md-3">
 						<li><span class="search_detail_lable">抽中房号</span> <span
-							class="search_detail_content">${p.newHouse.house_no }</span></li>
+							class="search_detail_content">${person.newHouse.house_no }</span></li>
 					</ul>
 					<ul class="col-md-2">
 						<li><span class="search_detail_lable">抽签顺序</span> <span
-							class="search_detail_content">${p.newHouse.select_seq }</span></li>
+							class="search_detail_content">${person.newHouse.select_seq }</span></li>
 					</ul>
 					<ul class="col-md-5">
 						<li><span class="search_detail_lable">抽签时间</span> <span
-							class="search_detail_content">${p.newHouse.select_time }</span></li>
+							class="search_detail_content">${person.newHouse.select_time }</span></li>
 					</ul>
 				</div>
 			</c:if>
