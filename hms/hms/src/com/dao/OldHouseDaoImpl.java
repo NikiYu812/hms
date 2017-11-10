@@ -57,12 +57,13 @@ public class OldHouseDaoImpl implements OldHouseDao {
 		List<OldHouse> ohs = new ArrayList<OldHouse>();
 		try {
 			conn = JdbcUtil.getConnection();
-			String sql = "select oh.*,p.* from tb_oldHouse oh,tb_person p  where oh.person_id = p.id and (oh.house_no= ? or p.p0_name = ? or p.p0_uid = ? or p.p1_idcNo = ?)";
+			String sql = "select oh.*,p.* from tb_oldHouse oh,tb_person p  where oh.person_id = p.id and (oh.house_no like ? or p.p0_name like ? or p.p0_uid like ? or p.p1_idcNo like ? or oh.person_id like ?)";
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, kw);
-			ps.setString(2, kw);
-			ps.setString(3, kw);
-			ps.setString(4, kw);
+			ps.setString(1, "%"+kw+"%");
+			ps.setString(2, "%"+kw+"%");
+			ps.setString(3, "%"+kw+"%");
+			ps.setString(4, "%"+kw+"%");
+			ps.setString(5, "%"+kw+"%");
 			rs = ps.executeQuery();
 			PersonDao pd = new PersonDaoImpl();
 			

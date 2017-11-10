@@ -3,7 +3,7 @@
     <wb-module deploy-name="hms">
         <wb-resource deploy-path="/" source-path="/WebRoot"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="/hms"/>
         <property name="java-output-path" value="/hms/WebRoot/WEB-INF/classes"/>
-        <property name="context-root" value="/hms_test"/>
     </wb-module>
 </project-modules>

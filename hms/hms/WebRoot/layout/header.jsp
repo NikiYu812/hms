@@ -1,6 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"  %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -23,22 +23,13 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-
 <!-- Bootstrap core CSS -->
 <link href="<%=basePath%>css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom styles for this template -->
-<link href="<%=basePath%>css/style.css" rel="stylesheet"
-	type="text/css">
-
-<style>
-<!--
--->
-</style>
+<link href="<%=basePath%>css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-
 	<!-- Static navbar -->
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
@@ -50,7 +41,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<img alt="中国航发" src="<%=basePath%>image/logo_small.png"/> <img
+				<img alt="中国航发" src="<%=basePath%>image/logo_small.png" /> <img
 					alt="文字logo" src="<%=basePath%>image/logo_text.png" />
 				<!-- <a class="navbar-brand" href="#">房屋抽签系统</a> -->
 			</div>
@@ -60,15 +51,22 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">导航菜单<span class="caret"></span> </a>
 						<ul class="dropdown-menu">
-							<li class=""><a href="housingServlet?method=list">旧房屋列表</a></li>
-							<li><a href="search.jsp?search_choose=0">信息查询</a></li>
+							<li class=""><a href="housingServlet?method=list&kw=">旧房屋列表</a>
+							</li>
+							<li><a href="search.jsp?search_choose=0">信息查询</a>
+							</li>
 							<li role="separator" class="divider"></li>
-							<li><a href="search.jsp?search_choose=1">第一轮抽签</a></li>
-							<li><a href="search.jsp?search_choose=2">第二轮抽签</a></li>
-							<li><a href="housingServlet?method=listNh ">新房源列表</a></li>
-						</ul>
-					</li>
+							<li><a href="search.jsp?search_choose=1">第一轮抽签</a>
+							</li>
+							<li><a href="search.jsp?search_choose=2">第二轮抽签</a>
+							</li>
+							<li><a href="housingServlet?method=listNh ">新房源列表</a>
+							</li>
+						</ul></li>
 				</ul>
+				<form class="navbar-form navbar-right" action="javascript:void(0)">
+					<input type="text" class="form-control" placeholder="Search..." id="nav-search-input">
+				</form>
 			</div>
 			<!--/.nav-collapse -->
 		</div>

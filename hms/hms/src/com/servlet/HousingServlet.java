@@ -44,8 +44,19 @@ public class HousingServlet extends HttpServlet {
 			 */
 			System.out.println("********查询全部旧房屋列表开始********");
 			path = "listOldHouse.jsp";
+			
+			String kw = "";
+			kw = URLDecoder.decode(request.getParameter("kw"), "utf-8").trim();
+			System.out.println("kw:" + kw);
+			
 			OldHouseDao ohd = new OldHouseDaoImpl();
-			List<OldHouse> ohs = ohd.getAllOldHouses();
+			List<OldHouse> ohs = null;
+			if(kw == "" || kw.equals("")){
+				ohs = ohd.getAllOldHouses();
+			}else{
+				ohs = ohd.getOldHousesByKw(kw);
+			}
+			 
 			request.setAttribute("ohs", ohs);
 			System.out.println("********查询全部旧房屋列表结束********");
 			/*
@@ -64,11 +75,21 @@ public class HousingServlet extends HttpServlet {
 			String choose = request.getParameter("choose");
 			System.out.println("choose:" + choose);
 
-			String kw = URLDecoder.decode(request.getParameter("kw"), "utf-8");
+			String kw = URLDecoder.decode(request.getParameter("kw"), "utf-8").trim();
 			System.out.println("kw:" + kw);
+			
+			String type = "0";
+			type = request.getParameter("type");
+			System.out.println("type:" + type);
 
 			OldHouseDao ohd = new OldHouseDaoImpl();
-			List<OldHouse> ohs = ohd.getOldHousesByKw(kw);
+			List<OldHouse> ohs = null;
+			if(type == "1"||type.equals("1")){
+				ohs = ohd.getOldHousesByPerson_id(kw);
+			}else{
+				ohs = ohd.getOldHousesByKw(kw);
+			}
+			
 
 			if (ohs.size() > 0) {
 				Person p = ohs.get(0).getPerson();
@@ -95,6 +116,7 @@ public class HousingServlet extends HttpServlet {
 			 * 
 			 * 查询房屋信息结束
 			 */
+
 		} else if (method.equals("choose1") || method == "choose1") {
 			/*
 			 * 

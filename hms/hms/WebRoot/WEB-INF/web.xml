@@ -8,22 +8,22 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  <jsp-config>
-    <jsp-property-group>
-      <url-pattern>*.jsp</url-pattern>
-      <el-ignored>false</el-ignored>
-      <scripting-invalid>false</scripting-invalid>
-    </jsp-property-group>
-  </jsp-config>
+  
   <servlet>
     <servlet-name>HousingServlet</servlet-name>
     <servlet-class>com.servlet.HousingServlet</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>HousingServlet</servlet-name>
     <url-pattern>/housingServlet</url-pattern>
   </servlet-mapping>
-
   
+  <servlet>
+    <servlet-name>CheckServlet</servlet-name>
+    <servlet-class>com.servlet.CheckServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckServlet</servlet-name>
+    <url-pattern>/checkServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -3,186 +3,241 @@
 /* 
 	全局样式
  */
-
-body{font:14px "Microsoft Yahei",Consolas,Helvetica,Arial,sans-serif;background:#fff;-webkit-text-size-adjust:100%;color:#333;}
-ul,ol{list-style-type:none;} 
-select,input,img,select{vertical-align:middle;} 
-.table >tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-	text-align : center;
+body {
+	font: 14px "Microsoft Yahei", Consolas, Helvetica, Arial, sans-serif;
+	background: #fff;
+	-webkit-text-size-adjust: 100%;
+	color: #333;
 }
-hr {clear:both; border-top:1px solid #deeeee;}
+
+ul,ol {
+	list-style-type: none;
+}
+
+select,input,img,select {
+	vertical-align: middle;
+}
+
+.table>tbody>tr>td,.table>tbody>tr>th,.table>tfoot>tr>td,.table>tfoot>tr>th,.table>thead>tr>td,.table>thead>tr>th
+	{
+	text-align: center;
+}
+
+hr {
+	clear: both;
+	border-top: 1px solid #deeeee;
+}
 /*css为clearfix，清除浮动*/
-.clearfix::before,
-.clearfix::after{
-    content: "";
-    height: 0;
-    line-height: 0;
-    display: block;
-    visibility: hidden;
-    clear: both;
+.clearfix::before,.clearfix::after {
+	content: "";
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
 }
-.clearfix:after{clear:both;} 
-.clearfix{ 
-    height:20px;
-    clear:both;
-}
-.red , .important {color: #d9534f;}
-.green {color: #00B58A;}
-.info {color: #5bc0de;}
-.warning {color: #f0ad4e;}
 
-.btn-hms-lg{
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	height: 20px;
+	clear: both;
+}
+
+.red,.important {
+	color: #d9534f;
+}
+
+.green {
+	color: #00B58A;
+}
+
+.info {
+	color: #5bc0de;
+}
+
+.warning {
+	color: #f0ad4e;
+}
+
+.btn-hms-lg {
 	background-color: #62afdd;
 	border-color: #62afdd;
 	width: 180px;
 }
 
-
-
 /* 
 	导航条样式
  */
-.navbar-default{
+.navbar-default {
 	height: 110px;
 	background-color: #f5f5f5;
 	border-bottom-color: #f3f3f3;
 	box-shadow: #f0f0f0 0 1px 1px;
 }
-.navbar  .navbar-header  img{
+
+.navbar  .navbar-header  img {
 	float: left;
 	height: 100px;
 	padding: 10px 0;
 	margin-right: 50px;
-	
 }
-.navbar ul{
+
+.navbar ul {
 	float: right;
 	margin-top: 30px;
 }
 
-.navbar ul li{
+.navbar ul li {
 	font-size: 16px;
 	margin: 0 15px;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:focus,.navbar-default .navbar-nav>.active>a:hover
+	{
 	border-bottom: 2px solid #4079be;
 	background-color: transparent;
-	 
 }
 
-
+.navbar .navbar-form {
+	position: relative;
+	top: 32px;
+}
 
 /* 
 	房屋列表样式
- */ 
- .house_list_table{
- 	margin-top: 30px;
- }
-.house_list_table table tbody tr {cursor: pointer;}
+ */
+.house_list_table {
+	margin: 0 auto 30px;
+	width: 1170px;
+}
+
+.house_list_table table tbody tr {
+	cursor: pointer;
+}
+
+#search_result_list_table {
+	position: relative;
+	top: -20px;
+}
 /* 
 	内容样式
  */
- 
-
- 
-.hms_container{
-    margin: 50px auto;
-    padding: 50px;
-    padding-bottom: 20px;
-    background-color: #f5f5f5;
-    border-radius: 2px;
-    box-shadow: #888 1px 1px 1px;
+.hms_container {
+	margin: 50px auto;
+	padding: 50px;
+	padding-bottom: 20px;
+	background-color: #f5f5f5;
+	border-radius: 2px;
+	box-shadow: #888 1px 1px 1px;
 }
 
-.hms_container  .hms_title{
+.hms_container  .hms_title {
 	position: relative;
-  top: -65px;
-  left: -20px;
-  color: #fff;
-  font-size: 20px;
+	top: -65px;
+	left: -20px;
+	color: #fff;
+	font-size: 20px;
 }
 
-.hms_container  .hms_title  .black_block{
+.hms_container  .hms_title  .black_block {
 	float: left;
 	width: 15px;
 }
 
-.hms_container  .hms_title  .board_block{
+.hms_container  .hms_title  .board_block {
 	background-color: #62afdd;
-  display: block;
-  float: left;
-  padding:20px;
-  box-shadow: #aaa 1px 1px 1px;
+	display: block;
+	float: left;
+	padding: 20px;
+	box-shadow: #aaa 1px 1px 1px;
 }
-.hms_main{
+
+.hms_main {
 	position: relative;
 	top: -20px;
 	clear: both;
-	font-size : 12pt;
-	
+	font-size: 12pt;
 }
 
- .hms_main .search_detail_title{
+.hms_main .search_detail_title {
 	border-left: 8px solid #62afdd;
 	padding: 0 10px;
 	font-size: 18px;
 	color: #6b6b6b;
 }
- .hms_main .search_detail_body {
-	overflow: hidden;
-	
+
+.hms_main .search_detail_title .label {
+	position: relative;
+	left: 15px;
+	top: -2px;
+	font-size: 16px;
 }
-.hms_main .search_detail_body  ul{
-	margin-top: 10px;	
+
+
+.hms_main .search_detail_body {
+	overflow: hidden;
+}
+
+.hms_main .search_detail_body  ul { /* margin-top: 10px;	 */
 	margin-bottom: 0;
 }
-.hms_main  .search_detail_body  ul li{
-	padding: 5px;
+
+.hms_main  .search_detail_body  ul li {
+	padding: 10px 5px;
 }
-.hms_main  .search_detail_body .search_detail_lable{
-	display:block;
-	float:left;
-	width:80px;
+
+.hms_main  .search_detail_body .search_detail_lable {
+	display: block;
+	float: left;
+	width: 80px;
 	color: #797979;
-}	
-.hms_main  .search_detail_body .search_detail_content{
+}
+
+.hms_main  .search_detail_body .search_detail_content {
 	margin-left: 8px;
-}	
+}
+
 .hms_main  .long  .search_detail_lable {
 	width: 180px;
 }
 
 /* section样式 */
-.hms_main .search_detail_body .section{overflow: hidden;}
-.hms_main .search_detail_body .section h5{
+.hms_main .search_detail_body .section {
+	overflow: hidden;
+}
+
+.hms_main .search_detail_body .section h5 {
 	overflow： hidden;
 	height: 30px;
 	line-height: 30px;
-	margin-left:15px;
+	margin-left: 15px;
 	margin-top: 10px;
 	font-size: 16px;
 	color: #959595;
-	
 }
-.hms_main .search_detail_body .section ul{
-	margin-top: 0;	
+
+.hms_main .search_detail_body .section ul {
+	margin-top: 0;
 	margin-bottom: 0;
 }
 
 /* 查询页面 */
 .searchByKw  .search_input {
-	width:900px; 
+	width: 900px;
 	height: 50px;
 	border-radius: 0;
 	font-size: 16px;
 }
+
 .searchByKw  .search_btn {
-	position: relative; 
-	top: -1px; 
+	position: relative;
+	top: -1px;
 	left: -10px;
 	width: 150px;
-	height: 50px; 
+	height: 50px;
 	border-radius: 0;
 	background-color: #62afdd;
 	border-color: #62afdd;
@@ -190,43 +245,40 @@ hr {clear:both; border-top:1px solid #deeeee;}
 }
 
 /* 抽签结果页面 */
-.hms_main  .choose_result{
+.hms_main  .choose_result {
 	font-size: 20px;
 	paddig-top: 0;
 	padding-bottom: 30px;
 }
-.hms_main .choose_result>span{
-	display: block;
-	float: left;
-	margin-left: 50px;
-}
-.hms_main  .choose_result  .choose_result_lable{
+.hms_main  .choose_result  .choose_result_lable {
 	margin-left: 80px;
 }
-.hms_main  .choose_result  .choose_result_content{
+.hms_main .choose_result span.label {
 	font-size: 24px;
-	font-weight: 800;
-	color: #00B58A;
-	
+	position: relative;
+	left: 30px;
 }
-.hms_main .choose2 h4{float:left; margin-right:30px;}
+
+
+.hms_main .choose2 h4 {
+	float: left;
+	margin-right: 30px;
+}
 
 /* 模态窗口 */
+.modal .modal-dialog .modal-content .modal-header .modal-title {
+	color: #1b809e;
+}
 
-.modal .modal-dialog.modal-lg{width: 1150px;}
-
-div#oldHouseDetails{
+div#oldHouseDetails {
 	margin-top: 20px;
 	margin-left: 20px;
 }
 
-#oldHouseDetails .long .search_detail_lable{width: 160px;}
+#oldHouseDetails .long .search_detail_lable {
+	width: 160px;
+}
 
-.hms_main .search_detail_body  ul.top0{margin-top: 0;}
-
-
-
-
-
-
-
+.hms_main .search_detail_body  ul.top0 {
+	margin-top: 0;
+}
