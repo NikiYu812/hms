@@ -32,4 +32,8 @@ select oh.person_id,oh.p0_name,count(p0_name) from tb_oldHouse oh where oh.sign_
 
 select p.* from tb_person p order by p.choose2_result DESC,p.choose1_result desc,p.choose_state desc,p.sign_state desc,id+0;
 
-select oh.*,p.* from tb_oldHouse oh,tb_person p  where oh.person_id = p.id and (oh.house_no= ? or p.p0_name = ? or p.p0_uid = ? or p.p1_idcNo = ?)
+select oh.*,p.* from tb_oldHouse oh,tb_person p  where oh.person_id = p.id and (oh.house_no= ? or p.p0_name = ? or p.p0_uid = ? or p.p1_idcNo = ?);
+
+select * from tb_oldhouse ORDER BY id LIMIT 5,10 ;
+
+select count(id) from tb_newHouse where building_type = 1 and idSelected = 1;

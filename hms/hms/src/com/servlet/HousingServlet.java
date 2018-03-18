@@ -49,15 +49,28 @@ public class HousingServlet extends HttpServlet {
 			kw = URLDecoder.decode(request.getParameter("kw"), "utf-8").trim();
 			System.out.println("kw:" + kw);
 			
+		    int page = 1;
+            String p = request.getParameter("page");
+            if(p!=null){
+                page = Integer.parseInt(p);
+            }
+            System.out.println("page:"+page);
+			
 			OldHouseDao ohd = new OldHouseDaoImpl();
 			List<OldHouse> ohs = null;
-			if(kw == "" || kw.equals("")){
-				ohs = ohd.getAllOldHouses();
+			if(kw == "" || kw.equals("") || kw == null){
+				ohs = ohd.getAllOldHousesByPage(page);
 			}else{
 				ohs = ohd.getOldHousesByKw(kw);
+				
 			}
+			
+			int totalPages = ohd.getTotalPage();
+			System.out.println("总页数："+totalPages);
 			 
 			request.setAttribute("ohs", ohs);
+			request.setAttribute("page", new Integer(page));
+			request.setAttribute("totalPages", new Integer(totalPages));
 			System.out.println("********查询全部旧房屋列表结束********");
 			/*
 			 * 
@@ -271,12 +284,24 @@ public class HousingServlet extends HttpServlet {
 			/*
 			 * 
 			 * 列出全部已选新房信息开始
+			 * 
 			 */
 			path = "listNewHouse.jsp";
+			int page = 1;
+			String p = request.getParameter("page");
+			if (p != null) {
+				page = Integer.parseInt(p);
+			}
+			System.out.println("page:" + page);
+			
 			NewHouseDao nhd = new NewHouseDaoImpl();
-			List<NewHouse> nhs = nhd.getAllNewHouses();
+			List<NewHouse> nhs = nhd.getAllNewHousesByPage(page);
+			int totalPages = nhd.getTotalPage();
+			System.out.println("总页数："+totalPages);
+			 
+			request.setAttribute("page", new Integer(page));
+			request.setAttribute("totalPages", new Integer(totalPages));
 			request.setAttribute("nhs", nhs);
-			request.setAttribute("method", method);
 			/*
 			 * 
 			 * 列出全部已选新房信息结束

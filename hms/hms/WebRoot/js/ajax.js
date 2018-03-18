@@ -40,25 +40,25 @@ function handle() {
 			for (i = 0; i < data.length; i++) {
 				document.getElementById("search_result_list_table").style.display = "block";
 				var sign_state = data[i].sign_state == 1 ? "已签" : "未签";
-				var sign_state_class = data[i].sign_state == 1 ? "green"
-						: "red";
+				var sign_state_class = data[i].sign_state == 1 ? "label-success"
+						: "label-danger";
 				var move_state = data[i].move_state == 1 ? "已搬家" : "未搬家";
-				var move_state_class = data[i].move_state == 1 ? "green"
-						: "red";
+				var move_state_class = data[i].move_state == 1 ? "label-success"
+						: "label-danger";
 				var choose_state = data[i].person.choose_state == 1 ? "第一轮已抽签，第二轮未抽签"
 						: data[i].person.choose_state == 2 ? "第二轮已抽签" : "未抽签";
-				var choose_state_class = data[i].person.choose_state == 1 ? "warning"
-						: data[i].person.choose_state == 2 ? "green" : "red";
+				var choose_state_class = data[i].person.choose_state == 1 ? "label-warning"
+						: data[i].person.choose_state == 2 ? "label-success" : "label-danger";
 				result.innerHTML += "<tr onclick=\"showDetail(\'"
 						+ data[i].person_id + "\'," + choose + ")\"><td>"
 						+ data[i].house_no + "</td><td>"
 						+ data[i].person.p0_name + "</td><td>"
 						+ data[i].person.p1_name + "</td><td>"
-						+ data[i].person.telNo + "</td><td><span class=\""
+						+ data[i].person.telNo + "</td><td><span class=\"label "
 						+ sign_state_class + "\">" + sign_state
-						+ "</span></td><td><span class=\"" + move_state_class + "\">"
+						+ "</span></td><td><span class=\"label " + move_state_class + "\">"
 						+ move_state + "</span></td><td>" + data[i].move_seq
-						+ "</td><td><span class=\"" + choose_state_class + "\">"
+						+ "</td><td><span class=\"label " + choose_state_class + "\">"
 						+ choose_state + "</span></td></tr>";
 			}
 		}

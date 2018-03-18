@@ -2,7 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.bean.*,java.util.List"%>
-<jsp:include page="layout/header.jsp" flush="true" />
+<jsp:include page="layout/_header.jsp" flush="true" />
 
 <c:forEach items="${ohs }" var="oh" varStatus="status">
 	<c:if test="${status.index == 0}">
@@ -214,4 +214,4 @@
 	</div>
 </div>
 
-<jsp:include page="layout/footer.jsp" flush="true" />
+<jsp:include page="layout/_footer.jsp" flush="true" />

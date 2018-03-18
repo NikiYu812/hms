@@ -23,7 +23,22 @@
  * #oh_telNo").text(str.person.telNo); $("#oldHouseDetails
  * #oh_sign_state").text(str.sign_state); console.log(str.toString); }
  */
-
+$(function () { $("[data-toggle='tooltip']").tooltip(); });
+/*当前导航高亮*/
+$(function(){
+	  var urlstr = location.href;
+	  var urlstatus=false;
+	  $(".dropdown-menu").find("li").each(function () {
+	    var a = $(this).find("a:first")[0];
+	    if ($(a).attr("href") === location.href) {
+            $(this).addClass("active");
+        } else {
+            $(this).removeClass("active");
+        }
+	  });
+	
+});
+/*回车提交表单*/
 $(function() {
 	$('#nav-search-input').bind(
 			'keypress',
@@ -35,6 +50,7 @@ $(function() {
 				}
 			});
 });
+
 function showDetail(kw, choose) {
 	if (choose == null) {
 		choose = 0;
@@ -47,7 +63,7 @@ function showDetail(kw, choose) {
 		window.location.href = url;
 	}
 }
-
+/*弹窗*/
 $('.btn-choose')
 		.click(
 				function() {
@@ -59,7 +75,7 @@ $('.btn-choose')
 									function(e) {
 										if (id == 'choose1-btn') {
 											$('#choose-modal-body').html(
-													'<h4>确认进行第一轮抽签？</h4>');
+													'<h4>【本人确认信息准确】并【开始进行第一轮抽签】？</h4>');
 											$(this)
 													.find('.btn-ok')
 													.attr(
@@ -77,9 +93,9 @@ $('.btn-choose')
 											console.log(building_type_text);
 											$('#choose-modal-body')
 													.html(
-															'<h4>您选择的房源类型：'
+															'<h4>您选择的房源类型：<span class=\"label label-success\">'
 																	+ building_type_text
-																	+ '</h4><h4>确认进行第二轮抽签？</h4>');
+																	+ '</span></h4><hr/><h4>【本人确认信息准确】并【开始进行第二轮抽签】？</h4>');
 											$(this)
 													.find('.btn-ok')
 													.attr(
@@ -95,3 +111,6 @@ $('.btn-choose')
 									});
 
 				});
+
+
+

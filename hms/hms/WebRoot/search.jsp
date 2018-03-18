@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="com.bean.OldHouse,java.util.List"%>
-<jsp:include page="layout/header.jsp" flush="true" />
+<%@ page import="com.bean.OldHouse , java.util.List"%>
+<jsp:include page="layout/_header.jsp" flush="true" />
 <script src="./js/ajax.js"></script>
 
 <c:choose>
@@ -67,7 +67,7 @@
 	</table>
 </div>
 
-<jsp:include page="layout/footer.jsp" flush="true" />
+<jsp:include page="layout/_footer.jsp" flush="true" />
 
 
 

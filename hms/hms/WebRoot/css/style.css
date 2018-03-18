@@ -9,24 +9,10 @@ body {
 	-webkit-text-size-adjust: 100%;
 	color: #333;
 }
-
-ul,ol {
-	list-style-type: none;
-}
-
-select,input,img,select {
-	vertical-align: middle;
-}
-
-.table>tbody>tr>td,.table>tbody>tr>th,.table>tfoot>tr>td,.table>tfoot>tr>th,.table>thead>tr>td,.table>thead>tr>th
-	{
-	text-align: center;
-}
-
-hr {
-	clear: both;
-	border-top: 1px solid #deeeee;
-}
+ul,ol {list-style-type: none;}
+select,input,img,select {vertical-align: middle;}
+.table>tbody>tr>td,.table>tbody>tr>th,.table>tfoot>tr>td,.table>tfoot>tr>th,.table>thead>tr>td,.table>thead>tr>th{text-align: center;}
+hr {clear: both;border-top: 1px solid #deeeee;}
 /*css为clearfix，清除浮动*/
 .clearfix::before,.clearfix::after {
 	content: "";
@@ -36,11 +22,9 @@ hr {
 	visibility: hidden;
 	clear: both;
 }
-
 .clearfix:after {
 	clear: both;
 }
-
 .clearfix {
 	height: 20px;
 	clear: both;
@@ -68,14 +52,17 @@ hr {
 	width: 180px;
 }
 
+.label,.badge {font-size: 14px;}
 /* 
 	导航条样式
  */
+
 .navbar-default {
 	height: 110px;
 	background-color: #f5f5f5;
 	border-bottom-color: #f3f3f3;
 	box-shadow: #f0f0f0 0 1px 1px;
+	border-top: 3px solid #62afdd;
 }
 
 .navbar  .navbar-header  img {
@@ -105,12 +92,61 @@ hr {
 	position: relative;
 	top: 32px;
 }
+#navbar ul.nav{
+	margin-right: 50px;
+}
+
+/* 登录按钮样式  */
+.login_bar{
+  height: 50px;
+  width: 130px;
+  background-color: #62afdd;
+  font-size: 16px;
+  text-align: center;
+  line-height: 45px;
+  float: right;
+}
+.login_bar a,.login_bar a:hover{color: #fff; text-decoration: none; cursor: pointer;}
+
+/* 
+	计数器样式
+ */
+.newhouse_count{width: 1150px; margin:auto; padding-left: 10px;}
+ul.count_block_list{
+	overflow: hidden;
+	padding-left:0;
+}
+ul.count_block_list li{
+	float: left;
+	width: 270px;
+	height: 150px;
+	margin-left: 16px;
+}
+ul.count_block_list li.block_green{
+	background-color: #34d288;
+}
+ul.count_block_list li.block_blue{
+	background-color: #33cfe5;
+}
+ul.count_block_list li.block_red{
+	background-color: #fd6d53;
+}
+ul.count_block_list li.block_yellow{
+	background-color: #f7b152;
+}
+ul.count_block_list li h2{
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	font-weight: 800;
+	margin-top: 15px;
+}
 
 /* 
 	房屋列表样式
  */
 .house_list_table {
-	margin: 0 auto 30px;
+	margin: 15px auto 30px;
 	width: 1170px;
 }
 
@@ -118,15 +154,11 @@ hr {
 	cursor: pointer;
 }
 
-#search_result_list_table {
-	position: relative;
-	top: -20px;
-}
 /* 
 	内容样式
  */
 .hms_container {
-	margin: 50px auto;
+	margin: 30px auto;
 	padding: 50px;
 	padding-bottom: 20px;
 	background-color: #f5f5f5;
@@ -230,6 +262,7 @@ hr {
 	height: 50px;
 	border-radius: 0;
 	font-size: 16px;
+	border: 2px solid #62afdd;
 }
 
 .searchByKw  .search_btn {
@@ -282,3 +315,51 @@ div#oldHouseDetails {
 .hms_main .search_detail_body  ul.top0 {
 	margin-top: 0;
 }
+
+/* 翻页样式  */
+ul.pagination{display:block; width:590px; overflow:hidden; margin:30px auto;}
+
+/* 页脚样式  */
+#footer{ 
+	width: 100%;
+	height: 100px;
+	border-top: 1px solid #e7e7e7;
+	text-align: center;
+	margin-top: 50px;
+}
+#footer .version_links{
+	width: 430px;
+	margin: 15px auto 0;
+	overflow: hidden;
+	padding-left: 30px;
+}
+#footer .version_links .version{
+	float: left;
+}
+#footer .version_links ul.links{
+	overflow: hidden;
+	float: left;
+	padding-left: 30px;
+}
+#footer .version_links ul.links li{
+	float: left;
+	display: inline-block;
+	padding-right: 30px;
+}
+#footer .copyright{
+	clear: both;
+	display: block;
+	width: 400px;
+	margin: auto;
+}
+/* 登录页面 */
+.logo_wrap{width: 600px;margin: 100px auto 30px;}
+.logo_wrap img{height: 100px;}
+.login_table{margin-bottom: 100px;}
+.login_table form{width: 350px; margin: 30px auto; margin-top: 50px;}
+.login_table .form-group{display: block;}
+.login_table .form-group input{width: 100%; height: 50px; line-height: 40px; margin: 8px auto; border: 2px solid #62afdd; font-size: 16px;}
+.login_table .form-group button.btn-login{width: 100%; height: 50px; line-height: 40px; margin: 20px auto 8px;}
+	
+	
+	
